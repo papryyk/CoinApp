@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+  {% block css_files %}{% endblock %}
+</head>
+<body>
+<header id="main-navigation">
+    <h1>Cieszyńska Dolina Krzemowa</h1>
+</header>
+{% block content %}{% endblock %}
+</body>
+</html>

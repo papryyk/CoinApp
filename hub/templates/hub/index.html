@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block content %}
+<table id="coin-list">
+    <tr>
+        <th>Coin</th>
+        <th>Price</th>
+        <th>Min Range</th>
+        <th>Max Range</th>
+    </tr>
+    {% for coin in coins %}
+    <tr>
+        <td>{{ coin.name }}</td>
+        {% if coin.current_price < 1 %}
+        <td>{{ coin.current_price | floatformat:6 }}</td>
+        {% else %}
+        <td>{{ coin.current_price | floatformat:2 }}</td>
+        {% endif %}
+        <td>{{ coin.ranges.min_range }}</td>
+        <td>{{ coin.ranges.max_range }}</td>
+    {% endfor %}
+    </tr>
+
+</table>
+{% endblock %}
