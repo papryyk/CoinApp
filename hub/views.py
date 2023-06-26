@@ -1,7 +1,4 @@
-from django.shortcuts import render
-from django.views import View
 from django.views.generic import ListView
-
 
 from .models import CallData
 
@@ -11,8 +8,5 @@ from .models import CallData
 class StartingPage(ListView):
     template_name = "hub/index.html"
     model = CallData
-    ordering = "-current_price"
+    ordering = "market_cap_rank"
     context_object_name = "coins"
-
-
-

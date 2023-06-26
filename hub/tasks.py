@@ -18,7 +18,11 @@ def api_to_db():
         if db_coin:
             db_coin = CallData.objects.get(name=coin["name"])
             db_coin.current_price = coin["current_price"]
-            db_coin.upload_time = timezone.now()
+            db_coin.market_cap = coin["market_cap"]
+            db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
+            db_coin.high_24h = coin["high_24h"]
+            db_coin.low_24h = coin["low_24h"]
+            db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.save()
             print("Database updated!")
         else:
@@ -26,7 +30,11 @@ def api_to_db():
             db_coin.name = coin["name"]
             db_coin.symbol = coin["symbol"]
             db_coin.current_price = coin["current_price"]
+            db_coin.market_cap = coin["market_cap"]
+            db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
+            db_coin.high_24h = coin["high_24h"]
+            db_coin.low_24h = coin["low_24h"]
+            db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.upload_time = timezone.now()
             db_coin.save()
             print("New record in database!")
-

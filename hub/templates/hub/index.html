@@ -10,19 +10,27 @@ Main Page
     <tr>
         <th>Coin</th>
         <th>Price</th>
+        <th>24h</th>
+        <th>Low 24h</th>
+        <th>High 24h</th>
+        <th>Market cap</th>
         <th>Min Range</th>
         <th>Max Range</th>
     </tr>
     {% for coin in coins %}
     <tr>
-        <td>{{ coin.name }}</td>
+        <td><a href="">{{ coin.name }}</a></td>
         {% if coin.current_price < 1 %}
         <td>{{ coin.current_price | floatformat:6 }}</td>
         {% else %}
         <td>{{ coin.current_price | floatformat:2 }}</td>
         {% endif %}
-        <td>{{ coin.ranges.min_range }}</td>
-        <td>{{ coin.ranges.max_range }}</td>
+        <td>{{ coin.price_change_percentage_24h | floatformat:1 }}%</td>
+        <td>{{ coin.low_24h | floatformat:2 }}</td>
+        <td>{{ coin.high_24h | floatformat:2 }}</td>
+        <td>{{ coin.market_cap | floatformat:2 }}</td>
+        <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
+        <td>{{ coin.ranges.max_range | floatformat:2 }}</td>
     {% endfor %}
     </tr>
 

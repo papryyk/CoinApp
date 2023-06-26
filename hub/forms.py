@@ -6,4 +6,7 @@ from .models import Ranges
 class RangesForm(forms.ModelForm):
     class Meta:
         model = Ranges
-        exclude = ["symbol"]
+        fields = ["min_range", "max_range", "symbol"]
+        widgets = {
+            "symbol": forms.HiddenInput()
+        }
