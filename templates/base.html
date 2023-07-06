@@ -11,7 +11,17 @@
 <body>
 <header id="main-navigation">
     <h1>Cieszyńska Dolina Krzemowa</h1>
+    <p>Wyróżnione Krypto</p>
+    <table id="pinned-coins">
+        {% for coin in coins|slice:":4" %}
+        <tr>
+            <td>{{ coin.symbol|upper }}</td>
+            <td>{{ coin.current_price | floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </header>
-{% block content %}{% endblock %}
+{% block content %}
+{% endblock %}
 </body>
 </html>

@@ -1,6 +1,9 @@
 #coin-list {
   width: 100%;
   border-collapse: collapse;
+  margin-left: 5rem;
+  margin-right: 5rem;
+
 }
 
 #coin-list th,
@@ -11,22 +14,22 @@
 }
 
 #coin-list th {
-  background-color: white;
+  background-color: #fff;
   font-weight: bold;
-  color: black;
+  color: #000;
 }
 
 #coin-list a {
   text-decoration: none;
-  color: black;
+  color: #000;
 }
 
 #coin-list tr {
-  border-bottom: 1px solid #ccc; /* Add a bottom border for the rows */
+  border-bottom: 1px solid #ccc;
 }
 
 #coin-list tr:last-child {
-  border-bottom: none; /* Remove the bottom border for the last row */
+  border-bottom: none;
 }
 
 #coin-list tr:hover {
