@@ -24,11 +24,13 @@ Main Page
     </tr>
     {% for coin in coins %}
     <tr onclick="location.href='';">
-        <td><a href="#">{{ coin.symbol | upper }} {{ coin.name }}</a></td>
+        <td><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }} {{ coin.name }}</td>
         {% if coin.current_price < 1 %}
-        <td>{{ coin.current_price | floatformat:6 }}</td>
+        <td class="{% if coin.price_change_percentage_24h > 0 %}green{% else %}red{% endif %}">
+            {{ coin.current_price | floatformat:6 }}</td>
         {% else %}
-        <td>{{ coin.current_price | floatformat:2 }}</td>
+        <td class="{% if coin.price_change_percentage_24h > 0 %}green{% else %}red{% endif %}">
+            {{ coin.current_price | floatformat:2 }}</td>
         {% endif %}
         <td>{{ coin.price_change_percentage_24h | floatformat:1 }}%</td>
         <td>{{ coin.low_24h | floatformat:2 }}</td>

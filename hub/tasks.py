@@ -23,8 +23,10 @@ def api_to_db():
             db_coin.high_24h = coin["high_24h"]
             db_coin.low_24h = coin["low_24h"]
             db_coin.market_cap_rank = coin["market_cap_rank"]
+            db_coin.image = coin["image"]
             db_coin.save()
             print("Database updated!")
+            print(coin)
         else:
             db_coin = CallData()
             db_coin.name = coin["name"]
