@@ -1,6 +1,11 @@
 /* app.css */
+html {
+background-color: #F0F0F0;
+}
+
 #main-navigation {
   width: 90%;
+  margin-bottom: 15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,35 +13,49 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #F0F0F0;
+  background-color: white;
   color: black;
-  border-radius: 50px;
+  border-radius: 0 0 50px 50px;
 }
 
 #main-navigation h1{
 color: #999900;
 }
 
-body {
+#tables-container {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  margin: 15rem 0;
-  background-color: white;
-  color: black;
-  border: 2px solid;
-  border-radius: 10px
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-#pinned-coins {
-  margin-top: 1rem;
-  width: 18%; /* Adjust the width as desired */
+#range-ok {
+  width: 25%; /* Adjust the width as desired */
   padding: 0; /* Remove or adjust the padding */
-  display: flex;
+  display: auto;
   flex-direction: column;
   text-align: left;
-  margin: 0;
 }
 
-#pinned-coins td {
+#range-ok td {
 padding-right: 10px;
+}
+
+#range-wrong {
+  width: 25%; /* Adjust the width as desired */
+  padding-right: 0 5%;
+  flex-direction: column;
+  text-align: left;
+}
+
+#range-wrong td {
+padding-right: 10px;
+}
+
+body {
+  display: flex;
+  align-items: auto;
+  margin: 15rem 0;
+  color: black;
 }

@@ -3,7 +3,8 @@
   border-collapse: collapse;
   margin-left: 5rem;
   margin-right: 5rem;
-
+  background-color: white;
+  border-radius: 10px;
 }
 
 #coin-list th,
@@ -14,9 +15,16 @@
 }
 
 #coin-list th {
-  background-color: #fff;
   font-weight: bold;
   color: #000;
+}
+
+#coin-list th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#coin-list th:last-child {
+  border-radius: 0 10px 10px 0;
 }
 
 #coin-list a {

@@ -11,15 +11,47 @@
 <body>
 <header id="main-navigation">
     <h1>Cieszyńska Dolina Krzemowa</h1>
-    <p>Wyróżnione Krypto</p>
-    <table id="pinned-coins">
-        {% for coin in coins|slice:":4" %}
+    <div id="tables-container">
+    <table id="range-ok">
+        <tr><th colspan="4">Zakresy w normie</th></tr>
+        {% for coin in coins %}
+        {% if coin.ranges.max_range > coin.current_price > coin.ranges.min_range %}
+        <tr>
+            <td>Nazwa</td>
+            <td>Cena</td>
+            <td>Min</td>
+            <td>Max</td>
+        </tr>
         <tr>
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2}}</td>
+            <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
+            <td>{{ coin.ranges.max_range | floatformat:2 }}</td>
         </tr>
+        {% endif %}
         {% endfor %}
     </table>
+
+    <table id="range-wrong">
+        <tr><th colspan="4">Zakresy poza normą</th></tr>
+        {% for coin in coins %}
+        {% if coin.ranges and not coin.ranges.max_range > coin.current_price > coin.ranges.min_range %}
+        <tr>
+            <td>Nazwa</td>
+            <td>Cena</td>
+            <td>Min</td>
+            <td>Max</td>
+        </tr>
+        <tr>
+            <td>{{ coin.symbol|upper }}</td>
+            <td>{{ coin.current_price | floatformat:2}}</td>
+            <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
+            <td>{{ coin.ranges.max_range | floatformat:2 }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    </div>
 </header>
 {% block content %}
 {% endblock %}
