@@ -1,0 +1,34 @@
+#coin-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#coin-list th,
+#coin-list td {
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
+}
+
+#coin-list th {
+  background-color: white;
+  font-weight: bold;
+  color: black;
+}
+
+#coin-list a {
+  text-decoration: none;
+  color: black;
+}
+
+#coin-list tr {
+  border-bottom: 1px solid #ccc; /* Add a bottom border for the rows */
+}
+
+#coin-list tr:last-child {
+  border-bottom: none; /* Remove the bottom border for the last row */
+}
+
+#coin-list tr:hover {
+  background-color: #eaeaea;
+}

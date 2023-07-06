@@ -5,6 +5,10 @@
 Main Page
 {% endblock %}
 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/styles.css' %}">
+{% endblock %}
+
 {% block content %}
 <table id="coin-list">
     <tr>
@@ -18,8 +22,8 @@ Main Page
         <th>Max Range</th>
     </tr>
     {% for coin in coins %}
-    <tr>
-        <td><a href="">{{ coin.name }}</a></td>
+    <tr onclick="location.href='';">
+        <td><a href="#">{{ coin.symbol | upper }} {{ coin.name }}</a></td>
         {% if coin.current_price < 1 %}
         <td>{{ coin.current_price | floatformat:6 }}</td>
         {% else %}
@@ -31,8 +35,7 @@ Main Page
         <td>{{ coin.market_cap | floatformat:2 }}</td>
         <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
         <td>{{ coin.ranges.max_range | floatformat:2 }}</td>
-    {% endfor %}
     </tr>
-
+    {% endfor %}
 </table>
 {% endblock %}

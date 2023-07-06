@@ -10,3 +10,8 @@ class StartingPage(ListView):
     model = CallData
     ordering = "market_cap_rank"
     context_object_name = "coins"
+    ordering_dict = {
+        "name": "name",
+        "price": "price",
+        "price_change_percentage_24h": "price_change_percentage_24h",
+    }
