@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ coin.min_range }}</h1>
+<h2>{{ max_range }}</h2>
+{% endblock %}

@@ -1,8 +1,8 @@
 #coin-list {
   width: 100%;
-  border-collapse: collapse;
   margin-left: 5rem;
   margin-right: 5rem;
+  border-collapse: collapse;
   background-color: white;
   border-radius: 10px;
 }

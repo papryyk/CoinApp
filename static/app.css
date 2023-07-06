@@ -14,12 +14,24 @@ background-color: #F0F0F0;
   top: 0;
   left: 0;
   background-color: white;
-  color: black;
+  color: #262626;
   border-radius: 0 0 50px 50px;
 }
 
 #main-navigation h1{
-color: #999900;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo-image {
+  height: 5rem;
+  width: 5rem;
+  padding-right: 1rem;
+  border-radius: 100%;
+}
+
+#main-navigation a {
+  text-decoration: none;
+  color: #262626;
 }
 
 #tables-container {
@@ -55,7 +67,7 @@ padding-right: 10px;
 
 body {
   display: flex;
-  align-items: auto;
-  margin: 15rem 0;
+  align-items: flex-start;
+  margin-top: calc(21rem + 1rem);
   color: black;
 }

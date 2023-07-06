@@ -9,8 +9,11 @@ Main Page
 <link rel="stylesheet" href="{% static 'hub/styles.css' %}">
 {% endblock %}
 
-{% block content %}
+{% block header %}
+{% include 'base_header.html' %}
+{% endblock %}
 
+{% block content %}
 <table id="coin-list">
     <tr>
         <th>Nazwa</th>
@@ -23,7 +26,7 @@ Main Page
         <th>Max Range</th>
     </tr>
     {% for coin in coins %}
-    <tr onclick="location.href='';">
+    <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
         <td><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }} {{ coin.name }}</td>
         {% if coin.current_price < 1 %}
         <td class="{% if coin.price_change_percentage_24h > 0 %}green{% else %}red{% endif %}">

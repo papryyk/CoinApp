@@ -26,7 +26,6 @@ def api_to_db():
             db_coin.image = coin["image"]
             db_coin.save()
             print("Database updated!")
-            print(coin)
         else:
             db_coin = CallData()
             db_coin.name = coin["name"]
