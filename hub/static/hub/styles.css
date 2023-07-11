@@ -1,10 +1,12 @@
 #coin-list {
+  display: flex;
   width: 100%;
-  margin-left: 5rem;
-  margin-right: 5rem;
   border-collapse: collapse;
   background-color: white;
   border-radius: 10px;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 #coin-list th,
@@ -14,9 +16,12 @@
   font-size: 20px;
 }
 
+#coin-list tr:first-child,
 #coin-list th {
   font-weight: bold;
   color: #000;
+  top: 8rem;
+  background-color: #white;
 }
 
 #coin-list th:first-child {

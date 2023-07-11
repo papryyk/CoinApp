@@ -1,6 +1,5 @@
-/* app.css */
 html {
-background-color: #F0F0F0;
+  background-color: #e6e6e6;
 }
 
 #main-navigation {
@@ -18,7 +17,7 @@ background-color: #F0F0F0;
   border-radius: 0 0 50px 50px;
 }
 
-#main-navigation h1{
+#main-navigation h1 {
   border-bottom: 1px solid #ccc;
 }
 
@@ -35,39 +34,56 @@ background-color: #F0F0F0;
 }
 
 #tables-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 1rem;
+  margin-top: 9rem;
   margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+#range-ok tbody tr:nth-child(n+4) {
+  display: none;
+}
+
+#range-wrong tbody tr:nth-child(n+4) {
+  display: none;
 }
 
 #range-ok {
-  width: 25%; /* Adjust the width as desired */
-  padding: 0; /* Remove or adjust the padding */
-  display: auto;
+  width: 25%;
+  padding: 0;
+  display: flex;
   flex-direction: column;
   text-align: left;
+  margin-top: 1rem;
 }
 
 #range-ok td {
-padding-right: 10px;
+  padding-right: 10px;
 }
 
 #range-wrong {
-  width: 25%; /* Adjust the width as desired */
+  width: 25%;
   padding-right: 0 5%;
   flex-direction: column;
   text-align: left;
+  margin-left: 5rem;
+  display: flex;
+  margin-top: 1rem;
 }
 
 #range-wrong td {
-padding-right: 10px;
+  padding-right: 10px;
 }
 
 body {
-  display: flex;
-  align-items: flex-start;
-  margin-top: calc(21rem + 1rem);
+  justify-content: center;
+  align-items: start;
   color: black;
 }
