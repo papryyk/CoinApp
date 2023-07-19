@@ -5,7 +5,27 @@
 {{ name }}
 {% endblock %}
 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/coin-details.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>{{ coin.min_range }}</h1>
-<h2>{{ max_range }}</h2>
+<div id="main-details">
+    <h1><img src="{{ image }}" alt="Image" class="coin-icon"> {{ name }} {{ symbol|upper }}</h1>
+    <h2>{{ current_price|floatformat:2 }} $</h2>
+    <form action="{% url 'coin-details' symbol %}" method="POST">
+        {% csrf_token %}
+        <p>
+        {{ min_range }}
+        {{ max_range }}
+        </p>
+        {{ ranges_form.min_range }}
+        {{ ranges_form.max_range }}
+        {{ ranges_form.coin }}
+        <button>Save</button>
+    </form>
+
+
+
+</div>
 {% endblock %}

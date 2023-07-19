@@ -1,0 +1,9 @@
+#main-details {
+  display: flex;
+  margin-top: 10rem;
+}
+
+.coin-icon {
+width: 2rem;
+height: 2rem;
+}
