@@ -14,7 +14,7 @@
         </tr>
         </thead>
         {% for coin in coins %}
-        {% if coin.ranges.max_range > coin.current_price > coin.ranges.min_range %}
+        {% if coin.current_price > coin.ranges.min_range and coin.current_price < coin.ranges.max_range %}
         <tr>
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2 }}</td>
@@ -38,7 +38,7 @@
         </tr>
         </thead>
         {% for coin in coins %}
-        {% if coin.ranges and not coin.ranges.max_range > coin.current_price > coin.ranges.min_range %}
+        {% if coin.ranges.max_range < coin.current_price or coin.current_price < coin.ranges.min_range %}
         <tr>
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2 }}</td>

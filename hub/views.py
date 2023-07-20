@@ -11,6 +11,13 @@ from .forms import RangesForm
 # Create your views here.
 
 
+def delete_range(request, symbol):
+    coin = Coin.objects.get(symbol=symbol)
+    Ranges.objects.get(coin=coin).delete()
+
+    return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
+
+
 class StartingPage(ListView):
     template_name = "hub/index.html"
     model = Coin
@@ -27,6 +34,8 @@ class CoinPage(View):
             "current_price": coin.current_price,
             "image": coin.image,
             "ranges_form": RangesForm(instance=coin),
+            "coin": coin,
+            "range_exists": Ranges.objects.filter(coin=coin)
             }
         try:
             context["min_range"] = coin.ranges.min_range
@@ -75,4 +84,3 @@ class CoinPage(View):
             print("mam cie")
 
         return render(request, "hub/coin_details.html", context)
-

@@ -23,8 +23,8 @@ Main Page
         <th>Low 24h</th>
         <th>High 24h</th>
         <th>Market cap</th>
-        <th>Min Range</th>
-        <th>Max Range</th>
+        <th>Min</th>
+        <th>Max</th>
     </tr>
     {% for coin in coins %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
