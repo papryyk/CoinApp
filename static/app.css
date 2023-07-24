@@ -33,57 +33,87 @@ html {
   color: #262626;
 }
 
-#tables-container {
-  margin-top: 9rem;
-  margin-bottom: 1rem;
-  background-color: white;
-  border-radius: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  max-height: 450px;
-  overflow: hidden;
-  position: relative;
-}
-
-#range-ok tbody tr:nth-child(n+4) {
-  display: none;
-}
-
-#range-wrong tbody tr:nth-child(n+4) {
-  display: none;
-}
 
 #range-ok {
-  width: 25%;
+  width: auto;
+  margin: auto;
+  font-size: 75%;
+  background-color: #b3c6ff;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  text-align: center;
   margin-top: 1rem;
+  position: fixed;
+  top: 10rem; /* Adjust the top position as desired */
+  margin-left: 1%;
+  margin-right: auto;
+  border-radius: 10px;
+  border: solid 1px #f2f2f2;
 }
 
 #range-ok td {
   padding-right: 10px;
 }
 
+
 #range-wrong {
-  width: 25%;
-  padding-right: 0 5%;
-  flex-direction: column;
-  text-align: left;
-  margin-left: 5rem;
-  display: flex;
+  width: auto;
+  margin: auto;
+  font-size: 75%;
+  background-color: red;
+  padding: 0;
+  text-align: center;
   margin-top: 1rem;
+  position: fixed;
+  top: 10rem; /* Adjust the top position as desired */
+  margin-right: 1%;
+  border-radius: 10px;
+  border: solid 1px #f2f2f2;
 }
 
 #range-wrong td {
   padding-right: 10px;
 }
 
-body {
-  justify-content: center;
-  align-items: start;
-  color: black;
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  /* Adjust positioning of #range-ok and #range-wrong for larger screens */
+  #range-ok,
+  #range-wrong {
+    width: auto;
+    position: fixed;
+  }
+
+  #range-ok {
+    left: 1%;
+  }
+
+  #range-wrong {
+    right: 1%;
+  }
 }
+
+/* Media query for smaller screens */
+@media screen and (max-width: 1374px) {
+  /* Stack #range-ok and #range-wrong on top of each other for smaller screens */
+  #range-ok {
+    margin-top: 10rem;
+    position: static;
+    margin-left: auto;
+  }
+
+  #range-wrong {
+    margin-top: 1rem; /* Adjust the top margin as desired */
+    position: static;
+    margin-right: auto;
+  }
+
+  #range-ok table,
+  #range-wrong table {
+    width: 100%; /* Make the table spread to the whole width */
+    margin: 0 auto; /* Center the table within the div */
+    position: static;
+  }
+
+}
+

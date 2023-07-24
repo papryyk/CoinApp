@@ -12,10 +12,10 @@ Main Page
 
 
 {% block content %}
-
 {% include 'base_header.html' %}
 
-<table id="coin-list">
+<div id="coin-list">
+<table cellspacing="0">
     <tr>
         <th>Nazwa</th>
         <th>Cena</th>
@@ -46,3 +46,4 @@ Main Page
     {% endfor %}
 </table>
 {% endblock %}
+</div>

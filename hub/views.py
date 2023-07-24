@@ -41,9 +41,10 @@ class CoinPage(View):
             context["min_range"] = coin.ranges.min_range
             context["max_range"] = coin.ranges.max_range
         except Coin.ranges.RelatedObjectDoesNotExist:
-            coin.ranges = Ranges()
-            context["min_range"] = coin.ranges.min_range
-            context["max_range"] = coin.ranges.max_range
+            # coin.ranges = Ranges()
+            # context["min_range"] = coin.ranges.min_range
+            # context["max_range"] = coin.ranges.max_range
+            pass
 
         return render(request, "hub/coin_details.html", context)
 
@@ -64,8 +65,6 @@ class CoinPage(View):
                 coin_range = form.save(commit=False)
                 coin_range.coin = coin
                 coin_range.save()
-            else:
-                print("error")
 
                 return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
 
@@ -81,6 +80,5 @@ class CoinPage(View):
             context["max_range"] = coin.ranges.max_range
         except Coin.ranges.RelatedObjectDoesNotExist:
             pass
-            print("mam cie")
 
         return render(request, "hub/coin_details.html", context)

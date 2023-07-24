@@ -21,8 +21,8 @@ class Coin(models.Model):
 
 class Ranges(models.Model):
     coin = models.OneToOneField(Coin, on_delete=models.CASCADE, related_name="ranges")
-    min_range = models.DecimalField(max_digits=20, decimal_places=10, default=1, null=True)
-    max_range = models.DecimalField(max_digits=20, decimal_places=10, default=1, null=True)
+    min_range = models.DecimalField(max_digits=20, decimal_places=10, null=True)
+    max_range = models.DecimalField(max_digits=20, decimal_places=10, null=True)
 
     def __str__(self):
         return f"{self.coin}"
