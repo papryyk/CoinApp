@@ -11,6 +11,7 @@ def api_to_db():
               "vs_currency=usd&order=market_cap_desc&per_page=250&page=1"
     response = requests.get(api_url)
     results = response.json()
+    print("I'm starting")
 
     for coin in results:
 
@@ -25,7 +26,6 @@ def api_to_db():
             db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.image = coin["image"]
             db_coin.save()
-            print("Database updated!")
         else:
             db_coin = Coin()
             db_coin.name = coin["name"]
@@ -38,4 +38,5 @@ def api_to_db():
             db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.upload_time = timezone.now()
             db_coin.save()
-            print("New record in database!")
+
+    print("Finished!")

@@ -105,6 +105,10 @@ html {
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1374px) {
+
+  #main-navigation {
+    border-radius: 0px;
+  }
   /* Stack #range-ok and #range-wrong on top of each other for smaller screens */
   #range-ok {
     margin-top: 10rem;
