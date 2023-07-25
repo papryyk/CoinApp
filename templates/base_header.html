@@ -1,21 +1,21 @@
 {% load static %}
 
 <div id="range-ok">
-    <table>
+    <table cellspacing="0">
         <thead>
         <tr>
-            <th colspan="4">Zakresy w normie</th>
+            <th colspan="4">Valid coin ranges</th>
         </tr>
         <tr>
-            <th>Nazwa</th>
-            <th>Cena</th>
+            <th>Coin</th>
+            <th>Price</th>
             <th>Min</th>
             <th>Max</th>
         </tr>
         </thead>
         {% for coin in coins %}
         {% if coin.current_price > coin.ranges.min_range and coin.current_price < coin.ranges.max_range %}
-        <tr>
+        <tr class="coins" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2 }}</td>
             <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
@@ -26,21 +26,21 @@
     </table>
 </div>
 <div id="range-wrong">
-    <table>
+    <table cellspacing="0">
         <thead>
         <tr>
-            <th colspan="4">Zakresy poza normą</th>
+            <th colspan="4">Invalid coin ranges</th>
         </tr>
         <tr>
-            <th>Nazwa</th>
-            <th>Cena</th>
+            <th>Coin</th>
+            <th>Price</th>
             <th>Min</th>
             <th>Max</th>
         </tr>
         </thead>
         {% for coin in coins %}
         {% if coin.ranges.max_range < coin.current_price or coin.current_price < coin.ranges.min_range %}
-        <tr>
+        <tr class="coins" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2 }}</td>
             <td>{{ coin.ranges.min_range | floatformat:2 }}</td>

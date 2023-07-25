@@ -6,7 +6,7 @@
   table-layout: auto;
   width: auto;
   font-size: 85%;
-  margin-top: 10rem;
+  margin-top: 12.5%;
   margin-left: 12.5%;
   margin-right: 12.5%;
 }
@@ -29,7 +29,7 @@
 #coin-list tr:first-child {
   position: sticky;
   z-index: 1;
-  top: 16.5%;
+  top: 18.9%;
   height: 70px;
 }
 
@@ -52,7 +52,7 @@
   border-bottom: none;
 }
 
-#coin-list tr:hover {
+#coin-list tr:not(:first-child):hover {
   background-color: #eaeaea;
 }
 

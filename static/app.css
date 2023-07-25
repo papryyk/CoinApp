@@ -3,8 +3,8 @@ html {
 }
 
 #main-navigation {
+  height: 19%;
   width: 90%;
-  margin-bottom: 15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,7 +38,7 @@ html {
   width: auto;
   margin: auto;
   font-size: 75%;
-  background-color: #b3c6ff;
+  background-color: white; /* #f2f2f2 */
   padding: 0;
   text-align: center;
   margin-top: 1rem;
@@ -47,7 +47,7 @@ html {
   margin-left: 1%;
   margin-right: auto;
   border-radius: 10px;
-  border: solid 1px #f2f2f2;
+  border: solid 2px #99ff99;
 }
 
 #range-ok td {
@@ -59,19 +59,29 @@ html {
   width: auto;
   margin: auto;
   font-size: 75%;
-  background-color: red;
+  background-color: white; /* #f2f2f2 */
   padding: 0;
   text-align: center;
   margin-top: 1rem;
   position: fixed;
   top: 10rem; /* Adjust the top position as desired */
   margin-right: 1%;
+  margin-left: auto;
   border-radius: 10px;
-  border: solid 1px #f2f2f2;
+  border: solid 2px #ffb3b3;
 }
 
 #range-wrong td {
   padding-right: 10px;
+}
+
+#range-wrong th,
+#range-ok th {
+  border-bottom: 1px solid black;
+}
+
+.coins:hover {
+  background-color: #eaeaea;
 }
 
 
