@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CieszynskaDolinaKrzemowa.urls'
+ROOT_URLCONF = 'CoinApp.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CieszynskaDolinaKrzemowa.wsgi.application'
+WSGI_APPLICATION = 'CoinApp.wsgi.application'
 
 
 # Database
