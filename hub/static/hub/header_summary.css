@@ -36,6 +36,14 @@ table {
   table-layout: fixed
 }
 
+#floatcontainter tr:not(:first-child):hover {
+  background: grey;
+}
+
+#floatcontainter th:first-child {
+  border-bottom: 1px solid;
+}
+
 #headers {
   overflow: hidden;
   text-overflow: ellipsis;

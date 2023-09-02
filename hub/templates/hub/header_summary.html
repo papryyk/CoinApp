@@ -6,7 +6,7 @@
 <div id="floatcontainter">
 <div id="hprice">
     <table cellspacing="0" align="center">
-    <tr><th class="headers" colspan="3"><b>Highest price</b></th>"s="headers"g
+    <tr><th class="headers" colspan="3"><b>Highest price</b></th>
     {% for coin in high_price %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
         <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
