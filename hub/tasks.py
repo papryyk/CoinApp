@@ -8,7 +8,7 @@ from .models import Coin
 @task(schedule=40)
 def api_to_db():
     api_url = "https://api.coingecko.com/api/v3/coins/markets?" \
-              "vs_currency=usd&order=market_cap_desc&per_page=250&page=1"
+              "vs_currency=usd&order=market_cap_desc&per_page=750&page=1"
     response = requests.get(api_url)
     results = response.json()
     print("I'm starting")

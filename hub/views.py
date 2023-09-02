@@ -27,7 +27,7 @@ class StartingPage(View):
         context = {
             "coins": Coin.objects.all(),
             "high_price": Coin.objects.all().order_by("-current_price")[0:3],
-            "new_coins": Coin.objects.all().order_by("upload_time")[0:3],
+            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
             "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
             "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
             }

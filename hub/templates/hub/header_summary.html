@@ -19,8 +19,8 @@
 
 <div id="ncoin">
     <table cellspacing="0" align="center">
-        <tr><th class="headers" colspan="3"><b>New coins</b></th></tr>
-        {% for coin in new_coins %}
+        <tr><th class="headers" colspan="3"><b>Lowest change</b></th></tr>
+        {% for coin in lowest_change %}
         <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper}}</td>
             <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>

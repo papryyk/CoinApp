@@ -28,7 +28,8 @@
 
 #border-line {
   margin-top: 2rem;
-  border-top: 10px solid;
+  border-top: 10px solid grey;
+  border-radius: 10px;
 }
 
 table {
