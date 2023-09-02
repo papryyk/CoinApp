@@ -1,5 +1,5 @@
 html {
-  background-color: #e6e6e6;
+  background: white;;
 }
 
 #main-navigation {
@@ -10,15 +10,18 @@ html {
   align-items: flex-start;
   padding: 0 5%;
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
-  background-color: white;
-  color: #262626;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border-radius: 0 0 50px 50px;
 }
 
 #main-navigation h1 {
   border-bottom: 1px solid #ccc;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo-image {
@@ -30,104 +33,5 @@ html {
 
 #main-navigation a {
   text-decoration: none;
-  color: #262626;
+  color: #9c9908;
 }
-
-
-#range-ok {
-  width: auto;
-  margin: auto;
-  font-size: 75%;
-  background-color: white; /* #f2f2f2 */
-  padding: 0;
-  text-align: center;
-  margin-top: 1rem;
-  position: fixed;
-  top: 10rem; /* Adjust the top position as desired */
-  margin-left: 1%;
-  margin-right: auto;
-  border-radius: 10px;
-  border: solid 2px #99ff99;
-}
-
-#range-ok td {
-  padding-right: 10px;
-}
-
-
-#range-wrong {
-  width: auto;
-  margin: auto;
-  font-size: 75%;
-  background-color: white; /* #f2f2f2 */
-  padding: 0;
-  text-align: center;
-  margin-top: 1rem;
-  position: fixed;
-  top: 10rem; /* Adjust the top position as desired */
-  margin-right: 1%;
-  margin-left: auto;
-  border-radius: 10px;
-  border: solid 2px #ffb3b3;
-}
-
-#range-wrong td {
-  padding-right: 10px;
-}
-
-#range-wrong th,
-#range-ok th {
-  border-bottom: 1px solid black;
-}
-
-.coins:hover {
-  background-color: #eaeaea;
-}
-
-
-/* Media query for larger screens */
-@media screen and (min-width: 768px) {
-  /* Adjust positioning of #range-ok and #range-wrong for larger screens */
-  #range-ok,
-  #range-wrong {
-    width: auto;
-    position: fixed;
-  }
-
-  #range-ok {
-    left: 1%;
-  }
-
-  #range-wrong {
-    right: 1%;
-  }
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 1374px) {
-
-  #main-navigation {
-    border-radius: 0px;
-  }
-  /* Stack #range-ok and #range-wrong on top of each other for smaller screens */
-  #range-ok {
-    margin-top: 10rem;
-    position: static;
-    margin-left: auto;
-  }
-
-  #range-wrong {
-    margin-top: 1rem; /* Adjust the top margin as desired */
-    position: static;
-    margin-right: auto;
-  }
-
-  #range-ok table,
-  #range-wrong table {
-    width: 100%; /* Make the table spread to the whole width */
-    margin: 0 auto; /* Center the table within the div */
-    position: static;
-  }
-
-}
-

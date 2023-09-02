@@ -1,4 +1,3 @@
-from django.views.generic import ListView
 from django.views import View
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
@@ -18,11 +17,21 @@ def delete_range(request, symbol):
     return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
 
 
-class StartingPage(ListView):
-    template_name = "hub/index.html"
-    model = Coin
-    ordering = "market_cap_rank"
-    context_object_name = "coins"
+class StartingPage(View):
+    # template_name = "hub/index.html"
+    # model = Coin
+    # ordering = "market_cap_rank"
+    # context_object_name = "coins"
+
+    def get(self, request):
+        context = {
+            "coins": Coin.objects.all(),
+            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
+            "new_coins": Coin.objects.all().order_by("upload_time")[0:3],
+            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
+            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
+            }
+        return render(request, "hub/index.html", context)
 
 
 class CoinPage(View):

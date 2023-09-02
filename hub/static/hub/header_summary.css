@@ -1,0 +1,43 @@
+#floatcontainter {
+  margin-top: 10rem;
+  text-align: center;
+  display: flex; /* Use flexbox to keep divs in one line */
+  justify-content: space-between; /* Distribute space between divs */
+}
+
+#hprice,
+#ncoin,
+#hchange,
+#hmcap {
+  flex: 1; /* Equal width for all divs */
+  background: white;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 20px; /* Add margin between divs */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#hprice {
+  margin-left: 0;
+}
+
+#hmcap {
+  margin-right: 0;
+}
+
+#border-line {
+  margin-top: 2rem;
+  border-top: 10px solid;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed
+}
+
+#headers {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

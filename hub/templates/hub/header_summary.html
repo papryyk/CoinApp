@@ -1,0 +1,60 @@
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/header_summary.css' %}">
+{% endblock %}
+
+<div id="floatcontainter">
+<div id="hprice">
+    <table cellspacing="0" align="center">
+    <tr><th class="headers" colspan="3"><b>Highest price</b></th>"s="headers"g
+    {% for coin in high_price %}
+    <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+        <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+        <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+        <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+<div id="ncoin">
+    <table cellspacing="0" align="center">
+        <tr><th class="headers" colspan="3"><b>New coins</b></th></tr>
+        {% for coin in new_coins %}
+        <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper}}</td>
+            <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+            <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div id="hchange">
+    <table cellspacing="0" align="center">
+        <tr><th class="headers" colspan="3"><b>Highest change</b></th></tr>
+        {% for coin in highest_change %}
+        <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+            <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+            <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    <div id="hmcap">
+        <table cellspacing="0" align="center">
+            <tr><th class="headers" colspan="3"><b>Highest mcap</b></th></tr>
+            {% for coin in highest_mcap %}
+            <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+                <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+                <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+                <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div id="border-line"></div>

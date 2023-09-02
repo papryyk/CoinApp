@@ -1,0 +1,94 @@
+#range-ok {
+  font-size: 75%;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#range-ok td,
+#range-ok th {
+  padding-left: 17px;
+}
+
+
+#range-wrong {
+  font-size: 75%;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#range-wrong td {
+  padding-right: 15px;
+}
+
+.hname {
+  font-size: 150%;
+}
+
+#range-wrong th,
+#range-ok th {
+  border-bottom: 1px solid black;
+}
+
+.coins-ok:hover {
+  background: #13e010;
+}
+
+.coins-wrong:hover {
+  background: #bd1108;
+}
+
+
+/* Media query for larger screens */
+@media screen and (min-width: 1433px) {
+
+  #ranges-container {
+    position: sticky;
+    top: 20%;
+    margin-top: 3rem;
+  }
+
+  #range-ok,
+  #range-wrong {
+    padding: 10px;
+    width: 245px;
+    align-items: center;
+    float: left;
+  }
+
+  #range-wrong {
+    margin-left: 55.5rem;
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 1433px) {
+
+  #ranges-container {
+    position: static;
+    margin-top: 1rem;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+   #range-ok {
+       position: static;
+     }
+
+     #range-wrong {
+       margin-top: 1rem;
+       position: static;
+     }
+
+     #range-ok table,
+     #range-wrong table {
+       width: 100%;
+       position: static;
+     }
+
+}

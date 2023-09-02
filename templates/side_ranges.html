@@ -1,10 +1,15 @@
 {% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'side_ranges.css' %}">
+{% endblock %}
 
+
+<div id="ranges-container">
 <div id="range-ok">
-    <table cellspacing="0">
+    <table cellspacing="0" align="center">
         <thead>
         <tr>
-            <th colspan="4">Valid coin ranges</th>
+            <th colspan="4" class="hname">Valid coin ranges</th>
         </tr>
         <tr>
             <th>Coin</th>
@@ -15,21 +20,27 @@
         </thead>
         {% for coin in coins %}
         {% if coin.current_price > coin.ranges.min_range and coin.current_price < coin.ranges.max_range %}
-        <tr class="coins" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+        <tr class="coins-ok" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>
+            {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
             <td>{{ coin.current_price | floatformat:2 }}</td>
             <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
             <td>{{ coin.ranges.max_range | floatformat:2 }}</td>
+            {% else %}
+            <td>{{ coin.current_price | floatformat:6 }}</td>
+            <td>{{ coin.ranges.min_range | floatformat:6 }}</td>
+            <td>{{ coin.ranges.max_range | floatformat:6 }}</td>
+            {% endif %}
         </tr>
         {% endif %}
         {% endfor %}
     </table>
 </div>
 <div id="range-wrong">
-    <table cellspacing="0">
+    <table cellspacing="0" align="center">
         <thead>
         <tr>
-            <th colspan="4">Invalid coin ranges</th>
+            <th colspan="4" class="hname">Invalid coin ranges</th>
         </tr>
         <tr>
             <th>Coin</th>
@@ -40,7 +51,7 @@
         </thead>
         {% for coin in coins %}
         {% if coin.ranges.max_range < coin.current_price or coin.current_price < coin.ranges.min_range %}
-        <tr class="coins" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
+        <tr class="coins-wrong" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>
             <td>{{ coin.current_price | floatformat:2 }}</td>
             <td>{{ coin.ranges.min_range | floatformat:2 }}</td>
@@ -49,4 +60,5 @@
         {% endif %}
         {% endfor %}
     </table>
+</div>
 </div>
