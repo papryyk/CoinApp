@@ -26,6 +26,7 @@ def api_to_db():
             db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.image = coin["image"]
             db_coin.save()
+            print(db_coin.name + " updated")
         else:
             db_coin = Coin()
             db_coin.name = coin["name"]
@@ -38,5 +39,11 @@ def api_to_db():
             db_coin.market_cap_rank = coin["market_cap_rank"]
             db_coin.upload_time = timezone.now()
             db_coin.save()
+            print(db_coin.name + " added")
+
+    for coin in Coin.objects.all():
+        if coin.price_change_percentage_24h is None or coin.current_price == 0:
+            coin.delete()
+            print(coin.name + " deleted")
 
     print("Finished!")

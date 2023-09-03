@@ -20,7 +20,10 @@ Main Page
 <table cellspacing="0">
     <tr>
         <th>Coin</th>
-        <th>Price</th>
+        <th>Price<form method="POST">{% csrf_token %}
+            <button name="b_value" value=True>True</button>
+            <button name="b_value" value=False>False</button>
+        </form></th>
         <th>24h</th>
         <th>Low 24h</th>
         <th>High 24h</th>

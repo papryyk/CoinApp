@@ -68,27 +68,13 @@
 @media screen and (max-width: 1433px) {
 
   #ranges-container {
-    position: static;
-    margin-top: 1rem;
-    right: 10%;
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+     }
+
+  #range-ok,
+  #range-wrong {
+    width: 45%;
   }
-
-   #range-ok {
-       position: static;
-     }
-
-     #range-wrong {
-       margin-top: 1rem;
-       position: static;
-     }
-
-     #range-ok table,
-     #range-wrong table {
-       width: 100%;
-       position: static;
-     }
-
 }

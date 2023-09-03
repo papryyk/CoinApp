@@ -41,7 +41,7 @@
 #coin-list tr:first-child,
 #coin-list th {
   font-weight: bold;
-  color: #9c9908;
+  color: black;
 }
 
 #coin-list a {

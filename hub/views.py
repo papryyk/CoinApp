@@ -18,10 +18,6 @@ def delete_range(request, symbol):
 
 
 class StartingPage(View):
-    # template_name = "hub/index.html"
-    # model = Coin
-    # ordering = "market_cap_rank"
-    # context_object_name = "coins"
 
     def get(self, request):
         context = {
@@ -33,6 +29,26 @@ class StartingPage(View):
             }
         return render(request, "hub/index.html", context)
 
+    def post(self, request):
+        b_value = request.POST.get("b_value")
+        if b_value == "True":
+            sort_sign = ""
+        else:
+            sort_sign = "-"
+
+        print(b_value)
+        print(sort_sign)
+
+
+        context = {
+            "coins": Coin.objects.all().order_by(sort_sign + "current_price"),
+            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
+            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
+            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
+            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
+        }
+
+        return render(request, "hub/index.html", context)
 
 class CoinPage(View):
     def get(self, request, symbol):
