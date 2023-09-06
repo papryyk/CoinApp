@@ -26,6 +26,7 @@ class StartingPage(View):
                         "high_h_sort": "high_24h",
                         "mcap_sort": "market_cap",
                         "coin_sort": "symbol",
+                        "rank_sort": "market_cap_rank",
                         }
 
         context = {}

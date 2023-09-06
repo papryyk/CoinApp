@@ -6,7 +6,7 @@
   background-color: white;
   align-items: center;
   table-layout: fixed;
-  font-size: 75%;
+  font-size: 71%;
   width: 850px;
   margin-left: 283px;
   margin-right: 100px;
@@ -70,6 +70,18 @@
   overflow: hidden;
 }
 
+#coin-list td:first-child,
+#coin-list th:first-child{
+  color: grey;
+  text-align: center;
+  width: auto;
+}
+
+.rank {
+  border: 0px;
+  background: white;
+}
+
 .green {
   color: green;
 }
@@ -83,4 +95,18 @@
   height: 1rem;
   width: 1rem;
   padding-right: 1rem;
+}
+
+button {
+  font-weight: bold;
+  border: 0;
+  background: white;
+  width: 75px;
+  height: 50px;
+}
+
+button:hover {
+  background: #eaeaea;
+  border: 50px;
+  border-radius: 15px;
 }
