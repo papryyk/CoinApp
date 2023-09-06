@@ -20,26 +20,41 @@ def delete_range(request, symbol):
 class StartingPage(View):
 
     def get(self, request):
-        price_sort = request.GET.get("price_sort_test")
-        if price_sort == "TRUE":
-            price_boo = True
-        else:
-            price_boo = False
+        sort_buttons = {"price_sort": "current_price",
+                        "h_sort": "price_change_percentage_24h",
+                        "low_h_sort": "low_24h",
+                        "high_h_sort": "high_24h",
+                        "mcap_sort": "market_cap",
+                        "coin_sort": "symbol",
+                        }
 
-        if price_boo:
-            sort_sign = ""
-        else:
-            sort_sign = "-"
+        context = {}
 
-        context = {
-            "coins": Coin.objects.all().order_by(sort_sign + "current_price"),
-            "coins_ranges": Coin.objects.all(),
-            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
-            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
-            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
-            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
-            "price_boo": price_boo
-            }
+        for s_button in sort_buttons:
+            s_button_value = request.GET.get(s_button)
+            if s_button_value is not None:
+                if s_button_value == "TRUE":
+                    price_boo = True
+                else:
+                    price_boo = False
+
+                if price_boo:
+                    sort_sign = ""
+                else:
+                    sort_sign = "-"
+
+                context["coins"] = Coin.objects.all().order_by(f"{sort_sign}{sort_buttons[s_button]}")
+                context["price_boo"] = price_boo
+                break
+            else:
+                context["coins"] = Coin.objects.all()
+
+        context["coins_ranges"] = Coin.objects.all()
+        context["high_price"] = Coin.objects.all().order_by("-current_price")[0:3]
+        context["lowest_change"] = Coin.objects.all().order_by("price_change_percentage_24h")[0:3]
+        context["highest_change"] = Coin.objects.all().order_by("-price_change_percentage_24h")[0:3]
+        context["highest_mcap"] = Coin.objects.all().order_by("-market_cap")[0:3]
+
         return render(request, "hub/index.html", context)
 
     def post(self, request):

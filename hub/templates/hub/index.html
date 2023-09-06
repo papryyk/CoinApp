@@ -20,21 +20,56 @@ Main Page
 <div id="coin-list">
 <table cellspacing="0">
     <tr>
-        <th>Coin</th>
+        <th>
+            <form method="GET">Coin
+                <button type="submit" formmethod="GET" name="coin_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
 
             <th>
             <form method="GET">Price
-            <button type="submit" formmethod="GET" name="price_sort_test"
+            <button type="submit" formmethod="GET" name="price_sort"
                     value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
             </form>
             </th>
 
-        <th>24h</th>
-        <th>Low 24h</th>
-        <th>High 24h</th>
-        <th>Market cap</th>
-        <th>Min</th>
-        <th>Max</th>
+        <th>
+            <form method="GET">24h
+                <button type="submit" formmethod="GET" name="h_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
+        <th>
+            <form method="GET">Low 24h
+            <button type="submit" formmethod="GET" name="low_h_sort"
+                    value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
+        <th>
+            <form method="GET">High 24h
+                <button type="submit" formmethod="GET" name="high_h_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
+        <th>
+            <form method="GET">Market Cap
+                <button type="submit" formmethod="GET" name="mcap_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
+        <th>
+            <form method="GET">Min
+                <button type="submit" formmethod="GET" name="min_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
+        <th>
+            <form method="GET">Max
+                <button type="submit" formmethod="GET" name="max_sort"
+                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+        </th>
     </tr>
     {% for coin in coins %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
