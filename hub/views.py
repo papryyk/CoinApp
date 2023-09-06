@@ -27,6 +27,8 @@ class StartingPage(View):
                         "mcap_sort": "market_cap",
                         "coin_sort": "symbol",
                         "rank_sort": "market_cap_rank",
+                        "min_sort": "ranges",
+                        "max_sort": "ranges",
                         }
 
         context = {}

@@ -9,7 +9,7 @@
     <tr><th class="headers" colspan="3"><b>Highest price</b></th>
     {% for coin in high_price %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-        <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+        <td class="headers"><img src="{{ coin.image }}" alt="Image" class="small-icon">{{ coin.symbol | upper }}</td>
         <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
         <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
     </tr>
@@ -22,7 +22,7 @@
         <tr><th class="headers" colspan="3"><b>Lowest change</b></th></tr>
         {% for coin in lowest_change %}
         <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper}}</td>
+            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="small-icon">{{ coin.symbol | upper}}</td>
             <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
             <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
         </tr>
@@ -35,7 +35,7 @@
         <tr><th class="headers" colspan="3"><b>Highest change</b></th></tr>
         {% for coin in highest_change %}
         <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+            <td class="headers"><img src="{{ coin.image }}" alt="Image" class="small-icon">{{ coin.symbol | upper }}</td>
             <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
             <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
         </tr>
@@ -48,7 +48,7 @@
             <tr><th class="headers" colspan="3"><b>Highest mcap</b></th></tr>
             {% for coin in highest_mcap %}
             <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-                <td class="headers"><img src="{{ coin.image }}" alt="Image" class="coin-icon">{{ coin.symbol | upper }}</td>
+                <td class="headers"><img src="{{ coin.image }}" alt="Image" class="small-icon">{{ coin.symbol | upper }}</td>
                 <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
                 <td class="headers">{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
             </tr>

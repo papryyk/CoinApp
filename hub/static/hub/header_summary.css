@@ -1,20 +1,25 @@
 #floatcontainter {
   margin-top: 11rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#floatcontainter th {
   text-align: center;
-  display: flex; /* Use flexbox to keep divs in one line */
-  justify-content: space-between; /* Distribute space between divs */
 }
 
 #hprice,
 #ncoin,
 #hchange,
 #hmcap {
-  flex: 1; /* Equal width for all divs */
+  flex: 1;
   background: white;
   overflow: hidden;
   border-radius: 10px;
   padding: 10px;
-  margin-right: 20px; /* Add margin between divs */
+  margin-right: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -49,4 +54,26 @@ table {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+#floatcontainter tr:hover td:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-right: 1px solid grey;
+  background: grey;
+}
+
+
+#floatcontainter tr:hover td:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-left: 1px solid grey;
+  background: grey;
+}
+
+.small-icon {
+  height: 10px;
+  width: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }

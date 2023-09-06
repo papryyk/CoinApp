@@ -6,9 +6,37 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-#range-ok td,
-#range-ok th {
-  padding-left: 17px;
+#range-ok,
+#range-wrong {
+  padding: 2px;
+}
+
+#range-ok tr:hover td:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-right: 1px solid #61faa4;
+  background: #61faa4;
+}
+
+#range-wrong tr:hover td:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-right: 1px solid #f07f97;
+  background: #f07f97;
+}
+
+#range-ok tr:hover td:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-left: 1px solid #61faa4;
+  background: #61faa4;
+}
+
+#range-wrong tr:hover td:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-left: 1px solid #f07f97;
+  background: #f07f97;
 }
 
 
@@ -34,11 +62,11 @@
 }
 
 .coins-ok:hover {
-  background: #13e010;
+  background: #61faa4;
 }
 
 .coins-wrong:hover {
-  background: #bd1108;
+  background: #f07f97;
 }
 
 
