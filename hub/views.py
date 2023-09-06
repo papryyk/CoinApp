@@ -20,28 +20,32 @@ def delete_range(request, symbol):
 class StartingPage(View):
 
     def get(self, request):
-        context = {
-            "coins": Coin.objects.all(),
-            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
-            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
-            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
-            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
-            }
-        return render(request, "hub/index.html", context)
+        price_sort = request.GET.get("price_sort_test")
+        if price_sort == "TRUE":
+            price_boo = True
+        else:
+            price_boo = False
 
-    def post(self, request):
-        b_value = request.POST.get("b_value")
-        if b_value == "True":
+        if price_boo:
             sort_sign = ""
         else:
             sort_sign = "-"
 
-        print(b_value)
-        print(sort_sign)
-
-
         context = {
             "coins": Coin.objects.all().order_by(sort_sign + "current_price"),
+            "coins_ranges": Coin.objects.all(),
+            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
+            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
+            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
+            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
+            "price_boo": price_boo
+            }
+        return render(request, "hub/index.html", context)
+
+    def post(self, request):
+
+        context = {
+            "coins": Coin.objects.all().order_by("current_price"),
             "high_price": Coin.objects.all().order_by("-current_price")[0:3],
             "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
             "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],

@@ -5,8 +5,8 @@
   top: -7rem;
   background-color: white;
   align-items: center;
-  table-layout: auto;
-  font-size: 85%;
+  table-layout: fixed;
+  font-size: 75%;
   width: 850px;
   margin-left: 283px;
   margin-right: 100px;
@@ -35,13 +35,14 @@
   position: sticky;
   top: 18.9%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  font-size: 20px;
+  font-size: 100%;
 }
 
 #coin-list tr:first-child,
 #coin-list th {
   font-weight: bold;
   color: black;
+  whit-space: nowrap;
 }
 
 #coin-list a {
@@ -61,6 +62,12 @@
 
 #coin-list tr:not(:first-child):hover {
   background-color: #eaeaea;
+}
+
+#coin-list tr:not(:first-child),
+#coin-list td {
+  height: 8px;
+  overflow: hidden;
 }
 
 .green {

@@ -8,6 +8,7 @@ Main Page
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'hub/index.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 {% endblock %}
 
@@ -20,10 +21,14 @@ Main Page
 <table cellspacing="0">
     <tr>
         <th>Coin</th>
-        <th>Price<form method="POST">{% csrf_token %}
-            <button name="b_value" value=True>True</button>
-            <button name="b_value" value=False>False</button>
-        </form></th>
+
+            <th>
+            <form method="GET">Price
+            <button type="submit" formmethod="GET" name="price_sort_test"
+                    value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}"><i class="fa fa-sort"></i></button>
+            </form>
+            </th>
+
         <th>24h</th>
         <th>Low 24h</th>
         <th>High 24h</th>
@@ -33,7 +38,8 @@ Main Page
     </tr>
     {% for coin in coins %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-        <td><img src="{{ coin.image }}" alt="Image" class="coin-icon"><b>{{ coin.symbol | upper }}</b> {{ coin.name }}</td>
+        <td><nobr><img src="{{ coin.image }}" alt="Image" class="coin-icon">
+            <b>{{ coin.symbol | upper }}<br></b></nobr><nobr>{{ coin.name }}</nobr></td>
         {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
         <td>
             <b>{{ coin.current_price | floatformat:2 }}</b></td>

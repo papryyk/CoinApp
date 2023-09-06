@@ -18,7 +18,7 @@
             <th>Max</th>
         </tr>
         </thead>
-        {% for coin in coins %}
+        {% for coin in coins_ranges %}
         {% if coin.current_price > coin.ranges.min_range and coin.current_price < coin.ranges.max_range %}
         <tr class="coins-ok" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>
@@ -49,7 +49,7 @@
             <th>Max</th>
         </tr>
         </thead>
-        {% for coin in coins %}
+        {% for coin in coins_ranges %}
         {% if coin.ranges.max_range < coin.current_price or coin.current_price < coin.ranges.min_range %}
         <tr class="coins-wrong" onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
             <td>{{ coin.symbol|upper }}</td>

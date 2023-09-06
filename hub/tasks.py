@@ -46,4 +46,4 @@ def api_to_db():
             coin.delete()
             print(coin.name + " deleted")
 
-    print("Finished!")
+    print(f"{timezone.now()} Finished!")
