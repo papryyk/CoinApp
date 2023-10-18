@@ -22,9 +22,12 @@ function sortTable(n) {
     for (i = 1; i < rows.length - 1; i++) {
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (sortFieldType == "Coin" || sortFieldType == "24h") {
+      if (sortFieldType == "Coin") {
         x = x.innerHTML;
         y = y.innerHTML;
+      } else if (sortFieldType == "24h") {
+        x = Number(x.textContent.substr(0, x.textContent.length - 8));
+        y = Number(y.textContent.substr(0, y.textContent.length - 8));
       } else {
         x = Number(x.textContent);
         y = Number(y.textContent);
