@@ -1,114 +1,63 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block title %} Main Page
+{%endblock%} {% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/index.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 
-{% block title %}
-Main Page
-{% endblock %}
-
-
-{% block css_files %}
-<link rel="stylesheet" href="{% static 'hub/index.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-{% endblock %}
-
-
-{% block content %}
-{% include 'hub/header_summary.html' %}
-{% include 'side_ranges.html' %}
+{% endblock %} {% block content %} {% include 'hub/header_summary.html' %}
+{%include 'side_ranges.html' %}
 
 <div id="coin-list">
-<table cellspacing="0">
+  <table id="coins" cellspacing="0">
     <tr>
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="rank_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Rank</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="coin_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Coin</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-            <button type="submit" formmethod="GET" name="price_sort"
-                    value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Price</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="h_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">24h</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-            <button type="submit" formmethod="GET" name="low_h_sort"
-                    value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Low 24h</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="high_h_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">High 24h</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="mcap_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">M.Cap</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="min_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Min</button>
-            </form>
-        </th>
-
-        <th>
-            <form method="GET">
-                <button type="submit" formmethod="GET" name="max_sort"
-                        value="{% if price_boo %}FALSE{% else %}TRUE{% endif %}">Max</button>
-            </form>
-        </th>
+      <th class="sort-button" onclick="sortTable(0)" value="asc">Rank</th>
+      <th class="sort-button" onclick="sortTable(1)" value="asc">Coin</th>
+      <th class="sort-button" onclick="sortTable(2)" value="asc">Price</th>
+      <th class="sort-button" onclick="sortTable(3)" value="asc">24h</th>
+      <th class="sort-button" onclick="sortTable(4)" value="asc">Low 24h</th>
+      <th class="sort-button" onclick="sortTable(5)" value="asc">High 24h</th>
+      <th class="sort-button" onclick="sortTable(6)" value="asc">M.Cap</th>
+      <th class="sort-button" onclick="sortTable(7)" value="asc">Min</th>
+      <th class="sort-button" onclick="sortTable(8)" value="asc">Max</th>
     </tr>
     {% for coin in coins %}
     <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
-        <td>{{ coin.market_cap_rank }}.</td>
-        <td><nobr><img src="{{ coin.image }}" alt="Image" class="coin-icon">
-            <b>{{ coin.symbol | upper }}<br></b></nobr><nobr>{{ coin.name }}</nobr></td>
-        {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
-        <td>
-            <b>{{ coin.current_price | floatformat:2 }}</b></td>
-        {% else %}
-        <td>
-            <b>{{ coin.current_price | floatformat:6 }}</b></td>
-        {% endif %}
-        <td class="{% if coin.price_change_percentage_24h > 0 %}green{% else %}red{% endif %}"><b>{{ coin.price_change_percentage_24h | floatformat:1 }}%</b></td>
-        <td><b>{{ coin.low_24h | floatformat:2 }}</b></td>
-        <td><b>{{ coin.high_24h | floatformat:2 }}</b></td>
-        <td><b>{{ coin.market_cap | floatformat:2 }}</b></td>
-        {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
-        <td><b>{{ coin.ranges.min_range | floatformat:2 }}</b></td>
-        <td><b>{{ coin.ranges.max_range | floatformat:2 }}</b></td>
-        {% else %}
-        <td><b>{{ coin.ranges.min_range | floatformat:6 }}</b></td>
-        <td><b>{{ coin.ranges.max_range | floatformat:6 }}</b></td>
-        {% endif %}
-
+      <td>{{ coin.market_cap_rank }}.</td>
+      <td>
+        <nobr
+          ><img src="{{ coin.image }}" alt="Image" class="coin-icon" />
+          <b>{{ coin.symbol | upper }}<br /></b></nobr
+        ><nobr>{{ coin.name }}</nobr>
+      </td>
+      {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
+      <td>
+        <b>{{ coin.current_price | floatformat:2 }}</b>
+      </td>
+      {% else %}
+      <td>
+        <b>{{ coin.current_price | floatformat:6 }}</b>
+      </td>
+      {% endif %}
+      <td
+        class="{% if coin.price_change_percentage_24h > 0 %}green{% else %}red{% endif %}"
+      >
+        <b>{{ coin.price_change_percentage_24h | floatformat:1 }}%</b>
+      </td>
+      <td><b>{{ coin.low_24h | floatformat:2 }}</b></td>
+      <td><b>{{ coin.high_24h | floatformat:2 }}</b></td>
+      <td><b>{{ coin.market_cap | floatformat:2 }}</b></td>
+      {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
+      <td><b>{{ coin.ranges.min_range | floatformat:2 }}</b></td>
+      <td><b>{{ coin.ranges.max_range | floatformat:2 }}</b></td>
+      {% else %}
+      <td><b>{{ coin.ranges.min_range | floatformat:6 }}</b></td>
+      <td><b>{{ coin.ranges.max_range | floatformat:6 }}</b></td>
+      {% endif %}
     </tr>
     {% endfor %}
-</table>
-{% endblock %}
+  </table>
+  <script src="{% static 'script.js' %}"></script>
+  {% endblock %}
 </div>

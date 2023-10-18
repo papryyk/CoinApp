@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #floatcontainter {
-  margin-top: 11rem;
+  margin-top: 12%;
   text-align: left;
   display: flex;
   justify-content: space-between;
-
 }
 
 #floatcontainter th {
@@ -20,7 +25,9 @@
   border-radius: 10px;
   padding: 10px;
   margin-right: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 #hprice {
@@ -39,7 +46,7 @@
 
 table {
   width: 100%;
-  table-layout: fixed
+  table-layout: fixed;
 }
 
 #floatcontainter tr:not(:first-child):hover {
@@ -62,7 +69,6 @@ table {
   border-right: 1px solid grey;
   background: grey;
 }
-
 
 #floatcontainter tr:hover td:last-child {
   border-top-right-radius: 15px;

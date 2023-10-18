@@ -20,57 +20,17 @@ def delete_range(request, symbol):
 class StartingPage(View):
 
     def get(self, request):
-        sort_buttons = {"price_sort": "current_price",
-                        "h_sort": "price_change_percentage_24h",
-                        "low_h_sort": "low_24h",
-                        "high_h_sort": "high_24h",
-                        "mcap_sort": "market_cap",
-                        "coin_sort": "symbol",
-                        "rank_sort": "market_cap_rank",
-                        "min_sort": "ranges",
-                        "max_sort": "ranges",
-                        }
-
-        context = {}
-
-        for s_button in sort_buttons:
-            s_button_value = request.GET.get(s_button)
-            if s_button_value is not None:
-                if s_button_value == "TRUE":
-                    price_boo = True
-                else:
-                    price_boo = False
-
-                if price_boo:
-                    sort_sign = ""
-                else:
-                    sort_sign = "-"
-
-                context["coins"] = Coin.objects.all().order_by(f"{sort_sign}{sort_buttons[s_button]}")
-                context["price_boo"] = price_boo
-                break
-            else:
-                context["coins"] = Coin.objects.all()
-
-        context["coins_ranges"] = Coin.objects.all()
-        context["high_price"] = Coin.objects.all().order_by("-current_price")[0:3]
-        context["lowest_change"] = Coin.objects.all().order_by("price_change_percentage_24h")[0:3]
-        context["highest_change"] = Coin.objects.all().order_by("-price_change_percentage_24h")[0:3]
-        context["highest_mcap"] = Coin.objects.all().order_by("-market_cap")[0:3]
-
-        return render(request, "hub/index.html", context)
-
-    def post(self, request):
-
         context = {
-            "coins": Coin.objects.all().order_by("current_price"),
+            "coins": Coin.objects.all(),
+            "coins_ranges": Coin.objects.all(),
             "high_price": Coin.objects.all().order_by("-current_price")[0:3],
             "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
             "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
-            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3],
+            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3]
         }
 
         return render(request, "hub/index.html", context)
+
 
 class CoinPage(View):
     def get(self, request, symbol):
@@ -83,7 +43,7 @@ class CoinPage(View):
             "ranges_form": RangesForm(instance=coin),
             "coin": coin,
             "range_exists": Ranges.objects.filter(coin=coin)
-            }
+        }
         try:
             context["min_range"] = coin.ranges.min_range
             context["max_range"] = coin.ranges.max_range

@@ -1,9 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #range-ok {
   font-size: 75%;
   background: white;
   text-align: center;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 #range-ok,
@@ -39,13 +47,14 @@
   background: #f07f97;
 }
 
-
 #range-wrong {
   font-size: 75%;
   background: white;
   text-align: center;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 #range-wrong td {
@@ -69,13 +78,11 @@
   background: #f07f97;
 }
 
-
 /* Media query for larger screens */
 @media screen and (min-width: 1433px) {
-
   #ranges-container {
     position: sticky;
-    top: 20%;
+    top: 150px;
     margin-top: 3rem;
   }
 
@@ -84,22 +91,26 @@
     padding: 10px;
     width: 245px;
     align-items: center;
-    float: left;
   }
 
   #range-wrong {
-    margin-left: 55.5rem;
+    float: right;
+    margin-right: 1%;
+  }
+
+  #range-ok {
+    float: left;
+    margin-left: 1%;
   }
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1433px) {
-
   #ranges-container {
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
-     }
+  }
 
   #range-ok,
   #range-wrong {

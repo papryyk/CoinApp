@@ -1,4 +1,15 @@
-body, h1, h2, h3, p, button {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+button {
   margin: 0;
   padding: 0;
 }
@@ -29,7 +40,6 @@ body {
   border-radius: 0 0 50px 50px;
 }
 
-
 #content-wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -38,10 +48,15 @@ body {
   background-color: #ffffff;
   width: 500px;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   color: #333333;
 }
 
@@ -68,4 +83,3 @@ form p {
     font-size: 0.9rem;
   }
 }
-

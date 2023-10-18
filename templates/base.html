@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'app.css' %}">
-    <link rel="apple-touch-icon" href="hub/images/olgz.png"/>
-    {% block js %}{% endblock %}
-  {% block css_files %}{% endblock %}
-</head>
-<body>
-{% block header %}
-<header id="main-navigation">
-<h1>
-    <a href="{% url 'starting-page' %}">
-        <img src="{% static 'hub/images/olgz.png' %}" alt="Logo" class="logo-image">
-        CoinSite
-    </a>
-</h1>
-</header>
-{% endblock %}
-{% block content %}
-{% endblock %}
-</body>
+    <link rel="stylesheet" href="{% static 'app.css' %}" />
+    <link rel="apple-touch-icon" href="hub/images/olgz.png" />
+    {% block js %}{% endblock %} {% block css_files %}{% endblock %}
+  </head>
+  <body>
+    {% block header %}
+    <header id="main-navigation">
+      <h1>
+        <a href="{% url 'starting-page' %}">
+          <img
+            src="{% static 'hub/images/olgz.png' %}"
+            alt="Logo"
+            class="logo-image"
+          />
+          CoinSite
+        </a>
+      </h1>
+    </header>
+    {% endblock %} {% block content %} {% endblock %}
+  </body>
 </html>
