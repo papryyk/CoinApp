@@ -5,10 +5,11 @@
 }
 
 #floatcontainter {
-  margin-top: 12%;
-  text-align: left;
   display: flex;
+  margin-top: 20%;
+  text-align: left;
   justify-content: space-between;
+  font-size: 70%;
 }
 
 #floatcontainter th {
@@ -16,7 +17,7 @@
 }
 
 #hprice,
-#ncoin,
+#nchange,
 #hchange,
 #hmcap {
   flex: 1;
