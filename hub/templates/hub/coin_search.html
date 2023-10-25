@@ -1,0 +1,19 @@
+{% load static %} {% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/coin_search.css' %}" />
+{% endblock %}
+<div id="coin-search">
+  <h1>Looking for something?</h1>
+  <h3><input name="search" id="type-a-coin" placeholder="Type a coin..." /></h2>
+  <br />
+  <div id="search-details">
+    <p><img src="{% static 'hub/images/logo.png' %}" id="search-icon">Bitcoin (BTC)</p>
+    <div id="search-container">
+      <div id="value">
+    <p>$ 51320</p>
+      </div>
+      <div id="percentage"
+      <p>+2.73%</p>
+    </div>
+    </div>
+  </div>
+</div>

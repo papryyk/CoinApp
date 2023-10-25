@@ -5,22 +5,55 @@
     <meta charset="UTF-8" />
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'app.css' %}" />
-    <link rel="apple-touch-icon" href="hub/images/olgz.png" />
+    <link rel="apple-touch-icon" href="hub/images/logo.jpg" />
     {% block js %}{% endblock %} {% block css_files %}{% endblock %}
   </head>
   <body>
     {% block header %}
-    <header id="main-navigation">
-      <h1>
-        <a href="{% url 'starting-page' %}">
+    <header>
+      <div id="main-navigation">
+        <a href="">About us</a>
+        <a href="">Support</a>
+        <a href="">Contact</a>
+      </div>
+        <div id="main-information">
+          <a href="{% url 'starting-page' %}" id="title">
+            <img
+              src="{% static 'hub/images/logo.png' %}"
+              alt="Logo"
+              id="logo-image"
+            />
+            CoinSite
+          </a>
+        <div id="main-services">
+          <ul>
+            <li>Rankings</li>
+            <li>Lookup</li>
+            <li>News</li>
+            <li>Market</li>
+          </ul>
+        </div>
+        <div id="main-logins">
+          <a href="" id="login">Log in</a>
+          <a href="" id="register">Register</a>
+        </div>
+      </div>
+      <div id="title-image-container">
+        <div id="title">
+          <h1>Crypto market</h1>
+          <h1>currencies HUB</h1>
+          <br>
+          <h2>Check on current coin prices</h2>
+          <h2>Use easy tools to mantain Your wallet.</h2>
+        </div>
+        <div id="image">
           <img
-            src="{% static 'hub/images/olgz.png' %}"
-            alt="Logo"
-            class="logo-image"
-          />
-          CoinSite
-        </a>
-      </h1>
+          src="{% static 'hub/images/logo.png' %}"
+          alt="main-logo"
+          id="main-logo-image">
+        </div>
+      </div>
+
     </header>
     {% endblock %} {% block content %} {% endblock %}
   </body>

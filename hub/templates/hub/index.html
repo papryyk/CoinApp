@@ -6,8 +6,10 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
-{% endblock %} {% block content %} {% include 'hub/header_summary.html' %}
-{%include 'coin_search.html' %} {% include 'side_ranges.html' %}
+{% endblock %} {% block content %}
+{% include 'hub/coin_search.html' %}
+ {% include 'hub/header_summary.html' %}
+ {% include 'side_ranges.html' %}
 
 <div id="coin-list">
   <table id="coins" cellspacing="0">
