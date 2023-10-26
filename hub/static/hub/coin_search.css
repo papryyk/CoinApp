@@ -22,6 +22,7 @@
 
 #search-container {
   display: flex;
+  flex-direction: row;
   font-size: 30px;
 }
 
@@ -41,7 +42,39 @@
 }
 
 
-#percentage {
+#percentage p {
   color: greenyellow;
+  font-size: 30px;
+}
+
+#chart-description-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4%;
+  padding-top: 20px;
+}
+
+#chart-image {
+  width: 550px;
+  height: 350px;
+}
+
+#description {
+  padding-left: 75px;
+  text-align: center;
+}
+
+#description a.button {
+  margin-left: 20px;
+  padding: 5px;
+}
+
+#description h4 {
+  font-size: 30px;
+}
+
+#description p {
+  font-size: 20px;
+  font-weight: normal;
 }
 
