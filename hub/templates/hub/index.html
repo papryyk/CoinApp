@@ -57,9 +57,11 @@
       <td><b>{{ coin.ranges.min_range | floatformat:6 }}</b></td>
       <td><b>{{ coin.ranges.max_range | floatformat:6 }}</b></td>
       {% endif %}
+      <td style="display:none">{{ coin.symbol }}</td>
+      <td style="display:none">{{ coin.image }}</td>
+      <td style="display:none">{{ coin.name }}</td>
     </tr>
     {% endfor %}
   </table>
-  <script src="{% static 'hub/script.js' %}"></script>
   {% endblock %}
 </div>

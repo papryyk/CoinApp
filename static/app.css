@@ -44,8 +44,17 @@ h2 {
   padding-bottom: 35px;
   width: 100%;
   display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#main-information.scrolled {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 #main-information h1 {
@@ -94,7 +103,7 @@ h2 {
 
 #register {
   color: white;
-  background-color: blue;
+  background-color: rgb(22, 22, 222);
   padding: 15px;
   border-radius: 10px;
 }

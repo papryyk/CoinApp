@@ -10,7 +10,6 @@
   </head>
   <body>
     {% block header %}
-    <header>
       <div id="main-navigation">
         <a href="https://www.youtube.com/watch?v=b1k8RdF5u2g">About us</a>
         <a href="https://www.leagueoflegends.com/pl-pl/champions/nidalee/">Support</a>
@@ -27,10 +26,10 @@
           </a>
         <div id="main-services">
           <ul>
-            <li>Rankings</li>
-            <li>Lookup</li>
-            <li>News</li>
-            <li>Market</li>
+            <a class="scroll-link" href="#coin-search">Lookup</a>
+            <a class="scroll-link" href="#nchange">Rankings</a>
+            <a class="scroll-link" href="">News</a>
+            <a class="scroll-link" href="#coin-list">Market</a>
           </ul>
         </div>
         <div id="main-logins">
@@ -53,8 +52,7 @@
           id="main-logo-image">
         </div>
       </div>
-
-    </header>
     {% endblock %} {% block content %} {% endblock %}
+    <script src="{% static 'hub/script.js' %}"></script>
   </body>
 </html>

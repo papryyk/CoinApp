@@ -1,10 +1,10 @@
 #coin-search {
-  background-color: rgb(244, 244, 242);
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 50px;
   padding-bottom: 25px;
   padding-top: 25px;
+  border-top: 1px solid #ccc;
 }
 
 #coin-search h1,h3 {
@@ -16,8 +16,60 @@
   font-size: 50px;
 }
 
+#search-input {
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
 #type-a-coin {
   width: 60%;
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  border-radius: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+#type-a-coin:focus {
+  outline: none;
+}
+
+#auto-complete-list {
+  display: none;
+  z-index: 1;
+  position: absolute; 
+  left: 19%;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 400px;
+  width: 250px;
+}
+
+#auto-complete-list a {
+  display: block;
+  padding: 4px;
+  text-align: left;
+  overflow: hidden;
+}
+
+#auto-complete-list a:hover {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+#search-details {
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px normal ;
+  border-top: 1px solid #ccc;
 }
 
 #search-container {
@@ -64,9 +116,35 @@
   text-align: center;
 }
 
+#description-line-one { 
+  display:flex;
+  flex-direction: row;
+}
+
+#description-line-two { 
+  display:flex;
+  flex-direction: row;
+}
+
+#description-line-one,
+#description-line-two {
+  margin-bottom: 70px;
+}
+
 #description a.button {
-  margin-left: 20px;
-  padding: 5px;
+  margin-right: 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+#description a.button:hover {
+  color: black;
+  background-color: #ccc;
 }
 
 #description h4 {
@@ -76,5 +154,22 @@
 #description p {
   font-size: 20px;
   font-weight: normal;
+}
+
+#suggested-range,
+#own-range,
+#news,
+#set-own-range {
+  width: 300px;
+}
+
+#news {
+  padding: auto;
+  margin: auto;
+}
+
+#news-href img {
+  width: 250px;
+  height: 100px;
 }
 
