@@ -106,9 +106,8 @@
   padding-top: 20px;
 }
 
-#chart-image {
-  width: 550px;
-  height: 350px;
+#chart {
+  width: 500px;
 }
 
 #description {

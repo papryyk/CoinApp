@@ -156,12 +156,11 @@ function searchOutcome(clickedSymbol) {
         document.getElementById("coingecko-href").href = `https://www.coingecko.com/pl/waluty/${currentCoinName.split(" ").join("-").toLowerCase()}`
         document.getElementById("kucoin-href").href = `https://www.kucoin.com/pl/price/${zeroTd.textContent.toUpperCase()}`
         document.getElementById("bitbay-href").href = `https://www.coinbase.com/pl/price/arbitrum${currentCoinName.split(" ")[0]}`
-        document.getElementById("news-href").href = `https://twitter.com/search?q=${currentCoinName}%20coin&src=typed_query&f=top`
+        document.getElementById("news-href").href = `https://twitter.com/search?q=${zeroTd.textContent}%20coin&src=typed_query&f=top`
 
       }
     }
   };
+
+  // jquery function
   
-
-
-

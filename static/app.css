@@ -90,7 +90,7 @@ h2 {
   margin-left: 10px;
 }
 
-#main-services li:hover,
+.scroll-link:hover,
 #login:hover {
   border-bottom: 2px solid;
 }
@@ -112,9 +112,24 @@ h2 {
   background-color: aqua;
 }
 
+#main-register-button {
+  font-size: 200%;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(22, 22, 222);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 90px;
+  padding-right: 90px;
+  border-radius: 10px;
+}
+
+#main-register-button:hover {
+  background-color: aqua;
+}
+
 #title-image-container {
   display: flex;
-  padding-bottom: 150px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -128,4 +143,10 @@ h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#main-register {
+  margin-top: -50px;
+  margin-left: 7%;
+  padding-bottom: 160px;
 }

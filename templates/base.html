@@ -4,8 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="{% static 'app.css' %}" />
-    <link rel="apple-touch-icon" href="hub/images/logo.jpg" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'hub/images/logo.png' %}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "hub/images/apple-touch-icon.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "hub/images/apple-touch-icon-precomposed.png" %}">
     {% block js %}{% endblock %} {% block css_files %}{% endblock %}
   </head>
   <body>
@@ -15,42 +20,27 @@
         <a href="https://www.leagueoflegends.com/pl-pl/champions/nidalee/">Support</a>
         <a href="https://www.oswietleniemeblowe.pl/pl/p/Kontakt-gniazdo-elektryczne-meblowe-z-wylacznikiem-12V/1035">Contact</a>
       </div>
-        <div id="main-information">
-          <a href="{% url 'starting-page' %}" id="title">
-            <img
-              src="{% static 'hub/images/logo.png' %}"
-              alt="Logo"
-              id="logo-image"
-            />
-            CoinSite
-          </a>
-        <div id="main-services">
-          <ul>
-            <a class="scroll-link" href="#coin-search">Lookup</a>
-            <a class="scroll-link" href="#nchange">Rankings</a>
-            <a class="scroll-link" href="">News</a>
-            <a class="scroll-link" href="#coin-list">Market</a>
-          </ul>
-        </div>
-        <div id="main-logins">
-          <a href="" id="login">Log in</a>
-          <a href="" id="register">Register</a>
-        </div>
-      </div>
-      <div id="title-image-container">
-        <div id="title">
-          <h1>Crypto market</h1>
-          <h1>currencies HUB</h1>
-          <br>
-          <h2>Check on current coin prices</h2>
-          <h2>Use easy tools to mantain Your wallet.</h2>
-        </div>
-        <div id="image">
+      <div id="main-information">
+        <a href="{% url 'starting-page' %}" id="title">
           <img
-          src="{% static 'hub/images/logo.png' %}"
-          alt="main-logo"
-          id="main-logo-image">
-        </div>
+            src="{% static 'hub/images/logo.png' %}"
+            alt="Logo"
+            id="logo-image"
+          />
+          CoinSite
+        </a>
+      <div id="main-services">
+        <ul>
+          <a class="scroll-link" href="#coin-search">Lookup</a>
+          <a class="scroll-link" href="#nchange">Rankings</a>
+          <a class="scroll-link" href="">News</a>
+          <a class="scroll-link" href="#coin-list">Market</a>
+        </ul>
+      </div>
+      <div id="main-logins">
+        <a href="" id="login">Log in</a>
+        <a href="" id="register">Register</a>
+      </div>
       </div>
     {% endblock %} {% block content %} {% endblock %}
     <script src="{% static 'hub/script.js' %}"></script>

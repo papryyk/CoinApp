@@ -7,9 +7,27 @@
 />
 
 {% endblock %} {% block content %}
+<div id="title-image-container">
+<div id="title">
+  <h1>Crypto market</h1>
+  <h1>currencies HUB</h1>
+  <br>
+  <h2>Check on current coin prices</h2>
+  <h2>Use easy tools to mantain Your wallet.</h2>
+</div>
+<div id="image">
+  <img
+  src="{% static 'hub/images/logo.png' %}"
+  alt="main-logo"
+  id="main-logo-image">
+</div>
+</div>
+<div id="main-register">
+  <a href="" type="button" id="main-register-button">REGISTER</a>
+</div>
 {% include 'hub/coin_search.html' %}
- {% include 'hub/header_summary.html' %}
- {% include 'side_ranges.html' %}
+{% include 'hub/header_summary.html' %}
+{% include 'side_ranges.html' %}
 
 <div id="coin-list">
   <table id="coins" cellspacing="0">
@@ -35,11 +53,11 @@
       </td>
       {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
       <td>
-        <b>{{ coin.current_price | floatformat:2 }}</b>
+        <b>{{ coin.current_price|floatformat:2 }}</b>
       </td>
       {% else %}
       <td>
-        <b>{{ coin.current_price | floatformat:6 }}</b>
+        <b>{{ coin.current_price|floatformat:6 }}</b>
       </td>
       {% endif %}
       <td
