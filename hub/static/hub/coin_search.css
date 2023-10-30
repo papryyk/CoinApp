@@ -2,8 +2,8 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 50px;
-  padding-bottom: 25px;
-  padding-top: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   border-top: 1px solid #ccc;
 }
 
@@ -13,7 +13,7 @@
 
 #coin-search p {
   margin-left: 5%;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 #search-input {
@@ -66,8 +66,8 @@
 #search-details {
   margin-left: 4%;
   margin-right: 4%;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   border-bottom: 1px normal ;
   border-top: 1px solid #ccc;
 }
@@ -79,8 +79,9 @@
 }
 
 #search-icon {
-  width: 100px;
-  padding-right: 40px;
+  width: 60px;
+  padding-right: 20px;
+  margin-left: -5%;
 }
 
 #value {
@@ -90,29 +91,30 @@
 }
 
 #value p {
-  font-size: 40px;
+  font-size: 25px;
 }
 
 
 #percentage p {
   color: greenyellow;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 #chart-description-container {
   display: flex;
   flex-direction: row;
-  margin-left: 4%;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
-#chart {
-  width: 500px;
+.chart {
+  width: 700px;
+  height: 500px;
+  position: relative;
 }
 
 #description {
-  padding-left: 75px;
-  text-align: center;
+  padding-left: 50px;
+  text-align: left;
 }
 
 #description-line-one { 
@@ -160,6 +162,11 @@
 #news,
 #set-own-range {
   width: 300px;
+}
+
+#own-range,
+#set-own-range {
+  margin-left: 20px;
 }
 
 #news {

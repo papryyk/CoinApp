@@ -3,6 +3,7 @@
 {% endblock %}
 
 <script type="text/javascript">
+  Chart.defaults.font.size = 10;
   $(document).ready(function(){
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -34,12 +35,7 @@
         }]
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        },
-        responsive: true
+        maintainAspectRatio: false
       }
     });
   });
@@ -66,7 +62,7 @@
       </div>
     </div>
     <div id="chart-description-container">
-      <div id="chart">
+      <div class="chart">
         <canvas id="myChart"></canvas>
       </div>
       <div id="description">
@@ -74,12 +70,14 @@
           <div id="suggested-range">
             <h4>Suggested ranges</h4>
             <br>
-            <p class="ranges" id="description-min-max">Min: 100000 Max: Moon</p>
+            <p class="ranges" id="description-min">Min: 100000</p>
+            <p class="ranges" id="description-max">Max: Moon</p>
           </div>
             <div id="own-range">
             <h4>Your ranges</h4>
             <br>
-            <p class="ranges" id="description-own-min-max">Min: 100000 Max: Moon</p>
+            <p class="ranges" id="description-own-min">Min: 100000</p>
+            <p class="ranges" id="description-own-max">Max: Moon</p>
           </div>
         </div>
         <div id="description-line-two">

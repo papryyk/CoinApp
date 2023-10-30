@@ -151,7 +151,8 @@ function searchOutcome(clickedSymbol) {
         document.getElementById("coin-name-p").append(`${currentCoinName} (${zeroTd.textContent.toUpperCase()})`)
         document.getElementById("value-p").innerHTML = currentPrice
         document.getElementById("percentage-p").innerHTML = currentPercentage
-        document.getElementById("description-min-max").innerHTML = `Min: ${currentMin}     Max: ${currentMax}`
+        document.getElementById("description-min").innerHTML = `Min: ${currentMin}`
+        document.getElementById("description-max").innerHTML = `Max: ${currentMax}`
         document.getElementById("binance-href").href = `https://www.binance.com/pl/price/${currentCoinName.split(" ")[0]}`
         document.getElementById("coingecko-href").href = `https://www.coingecko.com/pl/waluty/${currentCoinName.split(" ").join("-").toLowerCase()}`
         document.getElementById("kucoin-href").href = `https://www.kucoin.com/pl/price/${zeroTd.textContent.toUpperCase()}`
@@ -162,5 +163,3 @@ function searchOutcome(clickedSymbol) {
     }
   };
 
-  // jquery function
-  
