@@ -43,7 +43,7 @@
 
 <div id="coin-search">
   <div id=search-input>
-  <input class="scroll-link" href="#coin-search" id="type-a-coin" placeholder="Type a coin..." onkeyup:autoComplete()/>
+  <input class="scroll-link" href="#coin-search" id="type-a-coin" placeholder="Type a coin..." onkeyup:autoComplete()>
   <div id="auto-complete-list">
     {% for coin in coins %}
     <a onclick=searchOutcome("{{ coin.symbol }}")><img src="{{ coin.image }}" alt="Image" class="coin-icon" /><b>{{coin.symbol | upper}} </b>({{ coin.name }})</a>

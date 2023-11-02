@@ -23,11 +23,19 @@
 </div>
 </div>
 <div id="main-register">
-  <a href="" type="button" id="main-register-button">REGISTER</a>
+  <input id="email-register-button" placeholder="E-mail">
+  <a href="" type="button" id="main-register-button">Get Started</a>
+  <p id="other-register"> Or connect via</p>
+  <div id="connection-register">
+    <div id="google-connection">
+      <img class="connection-img" src="{% static 'hub/images/g-icon.png' %}">
+    </div>
+    <div id="facebook-connection">
+      <img class="connection-img" src="{% static 'hub/images/f-icon.png' %}">
+    </div>
+  </div>
 </div>
 {% include 'hub/coin_search.html' %}
-{% include 'hub/header_summary.html' %}
-{% include 'side_ranges.html' %}
 
 <div id="coin-list">
   <table id="coins" cellspacing="0">

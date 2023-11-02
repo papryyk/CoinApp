@@ -14,18 +14,16 @@
   table-layout: fixed;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 120px;
   font-size: 71%;
-  width: 850px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  width: 1200px;
 }
 
 @media screen and (max-width: 1432px) {
   #coin-list {
     margin-left: auto;
     margin-right: auto;
-    width: 850px;
+    width: 1200px;
     top: 2rem;
   }
 }
@@ -44,7 +42,6 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  font-size: 100%;
 }
 
 #coin-list tr:first-child,
@@ -107,6 +104,8 @@
 
 .sort-button:hover {
   background: #eaeaea;
-  border: 50px;
-  border-radius: 15px;
+}
+
+#coins {
+  width: 1200px;
 }

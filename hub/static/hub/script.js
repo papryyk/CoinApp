@@ -2,6 +2,7 @@
 
 document.addEventListener('scroll', function () {
   var mainInformation = document.getElementById('main-information');
+  var mainImage = document.getElementById('image')
 
   // Check if the user has scrolled beyond a certain threshold (e.g., 50 pixels)
   var scrollThreshold = 50;
@@ -10,8 +11,10 @@ document.addEventListener('scroll', function () {
   // Add or remove the 'scrolled' class based on the scroll position
   if (isScrolled) {
     mainInformation.classList.add('scrolled');
+    mainImage.classList.add('scrolled')
   } else {
     mainInformation.classList.remove('scrolled');
+    mainImage.classList.remove('scrolled')
   }
 });
 

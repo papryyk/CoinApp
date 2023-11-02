@@ -2,9 +2,8 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 50px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  background-color: rgba(85, 85, 85, 0.123);
 }
 
 #coin-search h1,h3 {
@@ -18,8 +17,6 @@
 
 #search-input {
   text-align: center;
-  padding-bottom: 5px;
-  padding-top: 5px;
 }
 
 #type-a-coin {
@@ -64,12 +61,11 @@
 }
 
 #search-details {
-  margin-left: 4%;
-  margin-right: 4%;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 30px;
+  padding-top: 15px;
   border-bottom: 1px normal ;
-  border-top: 1px solid #ccc;
 }
 
 #search-container {

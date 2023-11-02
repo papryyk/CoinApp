@@ -17,14 +17,43 @@ h2 {
 
 
 #main-navigation {
-  text-align: right;
   margin-top: 15px;
   margin-right: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 30px;
   border-bottom: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 12px;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+#main-search {
+  float: left;
+}
+
+#main-links {
+  float: right;
+}
+
+#main-search-input {
+  border: none;
+  background-color: rgba(114, 206, 240, 0.713);
+  color: white;
+  border-radius: 20px;
+  padding: 8px;
+  margin-top: -5px;
+  text-align: center;
+}
+
+#main-search-input::placeholder{
+  color: white;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+#main-search-input:focus {
+  outline: none;
 }
 
  a {
@@ -113,19 +142,22 @@ h2 {
 }
 
 #main-register-button {
-  font-size: 200%;
+  font-size: 20px;
   font-weight: bold;
   color: white;
   background-color: rgb(22, 22, 222);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding: 15px;
   border-radius: 10px;
 }
 
 #main-register-button:hover {
   background-color: aqua;
+}
+
+#email-register-button {
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 #title-image-container {
@@ -136,17 +168,47 @@ h2 {
 
 #image {
   width: 60%;
+  z-index: 999;
+}
+
+#image.scrolled {
+  z-index: 0;
 }
 
 #main-logo-image {
-  width: 350px;
+  width: 550px;
   display: block;
+  margin-top: -30px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #main-register {
-  margin-top: -50px;
+  margin-top: -250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5%;
+  margin-bottom: 130px;
+  background-color: #cccccc79;
+}
+
+#other-register { 
+  margin-top: 60px;
+  font-weight: bold;
+  margin-left: 10%;
+}
+
+#connection-register {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
   margin-left: 7%;
-  padding-bottom: 160px;
+}
+
+.connection-img {
+  width: 60px;
+}
+
+#facebook-connection {
+  margin-left: 50px;
 }

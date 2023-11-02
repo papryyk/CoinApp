@@ -23,10 +23,10 @@ class StartingPage(View):
         context = {
             "coins": Coin.objects.all(),
             "coins_ranges": Coin.objects.all(),
-            "high_price": Coin.objects.all().order_by("-current_price")[0:3],
-            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:3],
-            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:3],
-            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:3]
+            "high_price": Coin.objects.all().order_by("-current_price")[0:5],
+            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:5],
+            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:5],
+            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:5]
         }
 
         return render(request, "hub/index.html", context)

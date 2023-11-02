@@ -7,16 +7,36 @@
   <div id="nchange">
     <table cellspacing="0" align="center">
       <tr>
-        <th class="headers" colspan="3"><b>Lowest change</b></th>
+        <th class="ranking-title" colspan="5"><b>To the KWK Pniówek</b></th>
       </tr>
       {% for coin in lowest_change %}
       <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
         <td class="headers">
-          <img src="{{ coin.image }}" alt="Image" class="small-icon" />{{coin.symbol | upper | slice:4}}
+          <img src="{{ coin.image }}" alt="Image" class="coin-icon" />{{coin.symbol | upper | slice:4}}
         </td>
-        <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.current_price|floatformat:6 }}
+          {% else %}
+          {{ coin.current_price|floatformat:2 }}
+          {% endif %}
+        </td>
         <td class="headers">
           {{ coin.price_change_percentage_24h|floatformat:2 }}%
+        </td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.high_24h|floatformat:6 }}
+          {% else %}
+          {{ coin.high_24h|floatformat:2 }}
+          {% endif %}
+        </td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.low_24h|floatformat:6 }}
+          {% else %}
+          {{ coin.low_24h|floatformat:2 }}
+          {% endif %}
         </td>
       </tr>
       {% endfor %}
@@ -26,16 +46,36 @@
   <div id="hchange">
     <table cellspacing="0" align="center">
       <tr>
-        <th class="headers" colspan="3"><b>Highest change</b></th>
+        <th class="ranking-title" colspan="5"><b>To the Moon</b></th>
       </tr>
       {% for coin in highest_change %}
       <tr onclick="location.href='{% url 'coin-details' coin.symbol %} ';">
         <td class="headers">
-          <img src="{{ coin.image }}" alt="Image" class="small-icon" />{{coin.symbol | upper | slice:4 }}
+          <img src="{{ coin.image }}" alt="Image" class="coin-icon" />{{coin.symbol | upper | slice:4 }}
         </td>
-        <td class="headers">{{ coin.current_price|floatformat:-1 }}</td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.current_price|floatformat:6 }}
+          {% else %}
+          {{ coin.current_price|floatformat:2 }}
+          {% endif %}
+        </td>
         <td class="headers">
           {{ coin.price_change_percentage_24h|floatformat:2 }}%
+        </td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.high_24h|floatformat:6 }}
+          {% else %}
+          {{ coin.high_24h|floatformat:2 }}
+          {% endif %}
+        </td>
+        <td class="headers">
+          {% if coin.current_price|divisibleby:1 and coin.current_price < 100 %}
+          {{ coin.low_24h|floatformat:6 }}
+          {% else %}
+          {{ coin.low_24h|floatformat:2 }}
+          {% endif %}
         </td>
       </tr>
       {% endfor %}
