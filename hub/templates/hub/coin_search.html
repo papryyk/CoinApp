@@ -2,45 +2,6 @@
 <link rel="stylesheet" href="{% static 'hub/coin_search.css' %}" />
 {% endblock %}
 
-<script type="text/javascript">
-  Chart.defaults.font.size = 10;
-  $(document).ready(function(){
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ["2023-10-01","2023-10-02","2023-10-04","2023-10-05", "2023-10-06","2023-10-07","2023-10-08","2023-10-09","2023-10-10"
-        ,"2023-10-11","2023-10-12","2023-10-13","2023-10-14","2023-10-15","2023-10-16","2023-10-17","2023-10-18","2023-10-19","2023-10-20"
-        ,"2023-10-21","2023-10-22","2023-10-23","2023-10-24","2023-10-25","2023-10-26","2023-10-27","2023-10-28","2023-10-29","2023-10-30"],
-        datasets: [{
-          label: '# of users',
-          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 3, 4,5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 1],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)', 
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        maintainAspectRatio: false
-      }
-    });
-  });
-</script>
-
 <div id="coin-search">
   <div id=search-input>
   <input class="scroll-link" href="#coin-search" id="type-a-coin" placeholder="Type a coin..." onkeyup:autoComplete()>
@@ -56,6 +17,8 @@
     <div id="search-container">
       <div id="value">
         <p id="value-p">$ 100000</p>
+        <p id="historyPrice" style="display:none"></p>
+        <p id="uploadTime" style="display:none"></p>
       </div>
       <div id="percentage">
         <p id="percentage-p">+1000%</p>

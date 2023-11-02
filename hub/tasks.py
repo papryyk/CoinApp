@@ -12,7 +12,6 @@ def api_to_db():
               "vs_currency=usd&order=market_cap_desc&per_page=750&page=1"
     response = requests.get(api_url)
     results = response.json()
-    print(results)
 
     for coin in results:
 
@@ -21,9 +20,10 @@ def api_to_db():
             db_coin = Coin.objects.get(name=coin["name"])
             db_coin.current_price = coin["current_price"]
             try:
-                db_coin.history_price += f"{coin['current_price']},{timezone.now()},"
+                db_coin.history_price += f"{coin['current_price']},"
             except TypeError:
                 pass
+            db_coin.upload_time += f"{timezone.now()},"
             db_coin.market_cap = coin["market_cap"]
             db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
             db_coin.high_24h = coin["high_24h"]
@@ -36,13 +36,13 @@ def api_to_db():
             db_coin.name = coin["name"]
             db_coin.symbol = coin["symbol"]
             db_coin.current_price = coin["current_price"]
-            db_coin.history_price = f"{coin['current_price']},{timezone.now()},"
+            db_coin.history_price = f"{coin['current_price']},"
+            db_coin.upload_time = f"{timezone.now()},"
             db_coin.market_cap = coin["market_cap"]
             db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
             db_coin.high_24h = coin["high_24h"]
             db_coin.low_24h = coin["low_24h"]
             db_coin.market_cap_rank = coin["market_cap_rank"]
-            db_coin.upload_time = timezone.now()
             db_coin.save()
 
     for coin in Coin.objects.all():

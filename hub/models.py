@@ -9,7 +9,7 @@ class Coin(models.Model):
     current_price = models.DecimalField(
         max_digits=20, decimal_places=10, null=True)
     history_price = models.TextField(null=True)
-    upload_time = models.DateTimeField(null=True)
+    upload_time = models.TextField(null=True)
     market_cap = models.DecimalField(
         max_digits=50, decimal_places=10, null=True)
     price_change_percentage_24h = models.DecimalField(

@@ -1,5 +1,7 @@
 "use strict";
 
+var myChart = false
+
 document.addEventListener('scroll', function () {
   var mainInformation = document.getElementById('main-information');
   var mainImage = document.getElementById('image')
@@ -17,6 +19,7 @@ document.addEventListener('scroll', function () {
     mainImage.classList.remove('scrolled')
   }
 });
+
 
 function sortTable(n) {
   var i,
@@ -126,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function searchOutcome(clickedSymbol) {
-  var currentValue = document.getElementById("value-p")
     var table = document.getElementById('coins');
   
     // Get all rows in the table
@@ -148,6 +150,8 @@ function searchOutcome(clickedSymbol) {
         img.src = rows[i].getElementsByTagName('td')[10].innerHTML;
         img.id="search-icon"
         var currentCoinName = rows[i].getElementsByTagName('td')[11].textContent;
+        var historyPrice = rows[i].getElementsByTagName('td')[12].textContent;
+        var uploadTime = rows[i].getElementsByTagName('td')[13].textContent;
         
         document.getElementById("coin-name-p").textContent = ""
         document.getElementById("coin-name-p").append(img)
@@ -161,8 +165,40 @@ function searchOutcome(clickedSymbol) {
         document.getElementById("kucoin-href").href = `https://www.kucoin.com/pl/price/${zeroTd.textContent.toUpperCase()}`
         document.getElementById("bitbay-href").href = `https://www.coinbase.com/pl/price/arbitrum${currentCoinName.split(" ")[0]}`
         document.getElementById("news-href").href = `https://twitter.com/search?q=${zeroTd.textContent}%20coin&src=typed_query&f=top`
-
       }
     }
-  };
+      if (myChart != false) {myChart.destroy()}
+      var ctx = document.getElementById('myChart').getContext('2d');
+      myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: uploadTime.split(","),
+          datasets: [{
+            label: '# of users',
+            data: historyPrice.split(","),
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)', 
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
+    }
+
 
