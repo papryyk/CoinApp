@@ -18,6 +18,7 @@ class Coin(models.Model):
     low_24h = models.DecimalField(max_digits=20, decimal_places=10, null=True)
     market_cap_rank = models.IntegerField(null=True)
     image = models.URLField(null=True)
+    cg_identifier = models.TextField(null=True)
 
     def __str__(self):
         return f"{self.name}"
