@@ -5,6 +5,10 @@
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
+html {
+  background-image: url("hub/images/background-pic.jpg");
+}
+
 h1 {
   font-size: 60px;
   text-align: left;
@@ -37,7 +41,7 @@ h2 {
 #main-search-input {
   border: none;
   background-color: rgba(114, 206, 240, 0.713);
-  color: white;
+  color: rgba(255, 255, 255, 0.519);
   border-radius: 20px;
   padding: 8px;
   margin-top: -5px;
@@ -57,7 +61,7 @@ input:focus::placeholder {
 }
 
  a {
-  color:rgb(3, 3, 3);
+  color:rgba(255, 255, 255, 0.519);
   text-decoration: none;
   margin-right: 10px;
   margin-left: 10px;
@@ -68,7 +72,6 @@ input:focus::placeholder {
 }
 
 #main-information {
-  background-color: white;
   padding-top: 35px;
   padding-bottom: 35px;
   width: 100%;
@@ -81,9 +84,14 @@ input:focus::placeholder {
 }
 
 #main-information.scrolled {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(153, 151, 151);
   padding-bottom: 15px;
   margin-bottom: 20px;
+  background: url("hub/images/background-pic.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #main-information h1 {
@@ -98,7 +106,7 @@ input:focus::placeholder {
 
 #title {
   text-decoration: none;
-  color: black;
+  color: rgba(255, 255, 255, 0.519);
   font-size: 35px;
   font-weight: 100px;
 }

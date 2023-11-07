@@ -9,7 +9,7 @@
   flex-direction: column;
   position: relative;
   top: 20%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.268);
   align-items: center;
   table-layout: fixed;
   margin-left: auto;
@@ -60,7 +60,7 @@
 }
 
 #coin-list tr {
-  background: white;
+  background: rgba(255, 255, 255, 0.365);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;

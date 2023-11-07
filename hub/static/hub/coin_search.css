@@ -54,6 +54,7 @@
   padding: 4px;
   text-align: left;
   overflow: hidden;
+  color: black;
 }
 
 #auto-complete-list a:hover {
@@ -116,30 +117,48 @@
 #description-line-one { 
   display:flex;
   flex-direction: row;
+  text-align: center;
 }
 
-#description-line-two { 
-  display:flex;
-  flex-direction: row;
-}
-
-#description-line-one,
-#description-line-two {
+#description-line-one {
   margin-bottom: 70px;
 }
 
-#description a.button {
+#description-own-min,
+#description-own-max {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: normal;
+  max-width: 90px;
+}
+
+#description-own-min:focus,
+#description-own-max:focus {
+  outline: none;
+  background-color: white;
+  border-radius: 15px;
+  color: black;
+}
+
+#outsource-links {
+  text-align: center;
+}
+
+#outsource-links a.button {
   margin-right: 26px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: black;
-  color: white;
+  background-color: rgba(255, 255, 0, 0.403);
+  color: black;
   border-radius: 10px;
 }
 
-#description a.button:hover {
+#outsource-links a.button:hover {
   color: black;
   background-color: #ccc;
 }
@@ -154,10 +173,32 @@
 }
 
 #suggested-range,
-#own-range,
-#news,
-#set-own-range {
+#own-range {
   width: 300px;
+}
+
+#more {
+  text-align: center;
+  margin-bottom: 90px;
+  width: 600px;
+}
+
+#more-href {
+  position: relative;
+  top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 180px;
+  padding-right: 180px;
+  border: 1px solid rgba(255, 255, 0, 0.899);
+  color: white;
+  border-radius: 10px;
+  font-size: 40px;
+}
+
+#more a:hover {
+  color: black;
+  background-color: #ccc;
 }
 
 #own-range,
@@ -166,12 +207,22 @@
 }
 
 #news {
-  padding: auto;
-  margin: auto;
+  padding-top: 70px;
+  text-align: center;
 }
 
-#news-href img {
-  width: 250px;
-  height: 100px;
+#news-href {
+  font-size: 40px;
+  background-color: rgba(255, 255, 0, 0.403);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#news-href:hover {
+  color: black;
+  background-color: #ccc;
 }
 
