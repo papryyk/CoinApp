@@ -2,12 +2,21 @@
 Website which collects crypto coins data from most of the markets, with easy tools to maintain the wallet & work with trading plan.
 
 # TODO
+Views:
 1. Add Register / Log in view
-2. Add chart tools
-3. Replace django-workers with Celery
-4. Add coin details page ("More" href)
-5. Adjust styling
-6. Deploy
+2. Add My account view
+3. Add coin details page ("More" href)
+
+Tools:
+1. Add chart tools, incl. ranges
+2. Correct outside link connection (via API)
+3. Switch from coingecko API into markets directly
+4. Replace django-workers with Celery
+
+Overall:
+1. Adjust styling
+2. Prepare for deployment (AWS)
+
 
 # Landing page
 ![Zrzut ekranu 2023-11-7 o 14 28 48](https://github.com/papryyk/CoinApp/assets/85553099/d8a289e5-81cf-4aec-8fa4-cc25e0fdb19e)
