@@ -3,7 +3,7 @@ Website which collects crypto coins data from most of the markets, with easy too
 
 # TODO
 Views:
-***~~1. Add Register view~~***
+1. ~~Add Register view~~
 2. Add Log in div
 3. Style Register view
 4. Style Log in div
