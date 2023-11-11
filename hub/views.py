@@ -100,7 +100,7 @@ class SignUpView(FormView):
 
     def form_valid(self, form):
         form.save()
-        return super(self, SignUpView).form_valid(form)
+        return super(SignUpView, self).form_valid(form)
 
 
 class RegisterThansk(View):
