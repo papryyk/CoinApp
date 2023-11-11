@@ -170,6 +170,7 @@ function searchOutcome(clickedSymbol) {
         document.getElementById("kucoin-href").href = `https://www.kucoin.com/pl/price/${zeroTd.textContent.toUpperCase()}`
         document.getElementById("bitbay-href").href = `https://www.coinbase.com/pl/price/arbitrum${currentCoinName.split(" ")[0]}`
         document.getElementById("news-href").href = `https://twitter.com/search?q=${zeroTd.textContent}%20coin&src=typed_query&f=top`
+        document.getElementById("more-href").href = zeroTd.textContent
       }
     }
     if (myChart != false) {myChart.destroy()}

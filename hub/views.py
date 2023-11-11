@@ -1,11 +1,13 @@
 from django.views import View
+from django.views.generic.edit import FormView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
-from .models import Coin, Ranges
-from .forms import RangesForm
+from .models import Coin, Ranges, User
+from .forms import RangesForm, UserRegisterForm
 
 # Create your views here.
 
@@ -89,3 +91,18 @@ class CoinPage(View):
             pass
 
         return render(request, "hub/coin_details.html", context)
+
+
+class SignUpView(FormView):
+    template_name = 'hub/register.html'
+    form_class = UserRegisterForm
+    success_url = "register/thanks"
+
+    def form_valid(self, form):
+        form.save()
+        return super(self, SignUpView).form_valid(form)
+
+
+class RegisterThansk(View):
+    def get(self, request):
+        return render(request, "hub/register_thanks.html")

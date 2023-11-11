@@ -20,9 +20,9 @@
           <input class="scroll-link" href="#coin-search" id="main-search-input" placeholder="Cut the crap & search...">
         </div>
         <div id="main-links">
-        <a href="https://www.youtube.com/watch?v=b1k8RdF5u2g">About us</a>
-        <a href="https://www.leagueoflegends.com/pl-pl/champions/nidalee/">Support</a>
-        <a href="https://www.oswietleniemeblowe.pl/pl/p/Kontakt-gniazdo-elektryczne-meblowe-z-wylacznikiem-12V/1035">Contact</a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=b1k8RdF5u2g">About us</a>
+        <a target="_blank" href="https://www.leagueoflegends.com/pl-pl/champions/nidalee/">Support</a>
+        <a target="_blank" href="https://www.oswietleniemeblowe.pl/pl/p/Kontakt-gniazdo-elektryczne-meblowe-z-wylacznikiem-12V/1035">Credits</a>
         </div>
       </div>
       <div id="main-information">
@@ -42,7 +42,7 @@
       </div>
       <div id="main-logins">
         <a href="" id="login">Log in</a>
-        <a href="" id="register">Register</a>
+        <a href="{% url 'register-page' %}" id="register">Register</a>
       </div>
       </div>
     {% endblock %} {% block content %} {% endblock %}

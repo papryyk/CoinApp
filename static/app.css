@@ -56,6 +56,7 @@ input:focus::placeholder {
   color: transparent;
 }
 
+
 #main-search-input:focus {
   outline: none;
 }
@@ -140,32 +141,46 @@ input:focus::placeholder {
 
 #register {
   color: white;
-  background-color: rgb(22, 22, 222);
+  background-color: rgba(0, 0, 0, 0.479);
   padding: 15px;
   border-radius: 10px;
 }
 
 #register:hover {
-  background-color: aqua;
+  border: 5px solid black;
+  border-radius: 90px;
 }
 
 #main-register-button {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  background-color: rgb(22, 22, 222);
+  background-color: rgba(0, 0, 0, 0.479);
   padding: 15px;
   border-radius: 10px;
 }
 
 #main-register-button:hover {
-  background-color: aqua;
+  border: 5px solid black;
+  border-radius: 90px;
 }
 
 #email-register-button {
-  font-size: 20px;
+  font-size: 15px;
+  width: 280px;
   padding: 15px;
   border-radius: 10px;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.519);
+  color: rgba(0, 0, 0, 0.479)
+}
+
+#email-register-button:focus {
+  outline: none;
+}
+
+#email-register-button::placeholder {
+  color: rgba(0, 0, 0, 0.479);
 }
 
 #title-image-container {
