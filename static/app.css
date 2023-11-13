@@ -238,10 +238,11 @@ input:focus::placeholder {
   display: none;
   flex-direction: column;
   margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.479);
+  background-color: rgba(255, 255, 255, 0.29);
   padding: 15px;
   border-radius: 15px;
   margin-left: -40px;
+  text-align: center;
 }
 
 .user_pwd {
@@ -249,8 +250,8 @@ input:focus::placeholder {
   padding: 15px;
   border-radius: 10px;
   border: 0;
-  background-color: rgba(255, 255, 255, 0.519);
-  color: rgba(0, 0, 0, 0.479);
+  background-color: rgba(0, 0, 0, 0.479);
+  color: rgba(255, 255, 255, 0.519);
   margin: 5px;
 }
 
@@ -259,12 +260,14 @@ input:focus::placeholder {
 }
 
 #login-button {
-  background-color: rgba(64, 96, 235, 0.338);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.81);
   text-align: center;
   padding: 5px;
   border-radius: 30px;
-  color: white;
   margin-top: 10px;
+  width: 160px;
+  border: 0;
 }
 
 #login-button:hover {

@@ -224,13 +224,15 @@ function expandLogIn() {
   var bottomLoginButton = document.getElementById("login-button")
   var loginInput = document.getElementById("user-input")
   var pwdInput = document.getElementById("user-pwd")
+  var signInForm = document.getElementById("sign-in-form")
 
 
   expandLoginDiv.style.setProperty("display","flex")
   document.addEventListener('click', function (event) {
     // Hide the dropdown when clicking outside the input and dropdown
     if (event.target !== mainLoginDiv && event.target !== expandLoginDiv && event.target !== loginButton
-      && event.target !== bottomLoginButton && event.target !== loginInput && event.target !== pwdInput) {
+      && event.target !== bottomLoginButton && event.target !== loginInput && event.target !== pwdInput
+      && event.target !== signInForm) {
         expandLoginDiv.style.setProperty("display","none");
     }
   })
