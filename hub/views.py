@@ -120,13 +120,8 @@ class CoinPage(View):
 class SignUpView(FormView):
     template_name = 'hub/register.html'
     form_class = UserRegisterForm
-    success_url = "register/thanks"
+    success_url = reverse_lazy("starting-page")
 
     def form_valid(self, form):
         form.save()
         return super(SignUpView, self).form_valid(form)
-
-
-class RegisterThansk(View):
-    def get(self, request):
-        return render(request, "hub/register_thanks.html")

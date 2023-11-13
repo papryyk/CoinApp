@@ -7,6 +7,5 @@ urlpatterns = [
     path("coin/<symbol>", views.CoinPage.as_view(), name="coin-details"),
     path("delete_range/<symbol>", views.delete_range, name="delete-range"),
     path("register", views.SignUpView.as_view(), name="register-page"),
-    path("register/thanks", views.RegisterThansk.as_view(), name="register-thanks"),
     path("logout", views.logout_button, name="logout-button")
 ]
