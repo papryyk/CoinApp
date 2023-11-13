@@ -1,12 +1,12 @@
 from django.views import View
 from django.views.generic.edit import FormView
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 
-from .models import Coin, Ranges
+from .models import Coin, Ranges, User
 from .forms import RangesForm, UserRegisterForm, signInForm
 
 # Create your views here.
@@ -17,6 +17,12 @@ def delete_range(request, symbol):
     Ranges.objects.get(coin=coin).delete()
 
     return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
+
+
+def logout_button(request):
+    logout(request)
+
+    return HttpResponseRedirect(reverse("starting-page"))
 
 
 class StartingPage(View):
@@ -43,11 +49,9 @@ class StartingPage(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Redirect to a success page or do whatever is needed
-                print("logged in")
+                context['user'] = user
                 return HttpResponseRedirect(reverse("starting-page"))
             else:
-                # Handle invalid login
                 form.add_error(None, 'Invalid login credentials')
                 print("not logged, error")
 

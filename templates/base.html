@@ -41,6 +41,12 @@
         </ul>
       </div>
       <div id="main-logins">
+        {% if user.username != "" %}
+        <div id='user-info'>
+          <p> {{ user.username }} <p>
+          <a id="register" href="{% url 'logout-button' %}">Log out</a>
+        </div>
+        {% else %}
         <a onclick=expandLogIn() id="login">Log in</a>
         <a href="{% url 'register-page' %}" id="register">Register</a>
         <div id="expand-login">
@@ -50,6 +56,7 @@
             <button type="submit" id="login-button">Log in</button>
           </form>
         </div>
+        {% endif %}
       </div>
       </div>
     {% endblock %} {% block content %} {% endblock %}
