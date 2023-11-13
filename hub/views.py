@@ -1,13 +1,13 @@
 from django.views import View
 from django.views.generic.edit import FormView
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 
-from .models import Coin, Ranges, User
-from .forms import RangesForm, UserRegisterForm
+from .models import Coin, Ranges
+from .forms import RangesForm, UserRegisterForm, signInForm
 
 # Create your views here.
 
@@ -22,14 +22,34 @@ def delete_range(request, symbol):
 class StartingPage(View):
 
     def get(self, request):
+        form = signInForm()
         context = {
             "coins": Coin.objects.all(),
-            "coins_ranges": Coin.objects.all(),
-            "high_price": Coin.objects.all().order_by("-current_price")[0:5],
-            "lowest_change": Coin.objects.all().order_by("price_change_percentage_24h")[0:5],
-            "highest_change": Coin.objects.all().order_by("-price_change_percentage_24h")[0:5],
-            "highest_mcap": Coin.objects.all().order_by("-market_cap")[0:5]
+            "form": form
         }
+
+        return render(request, "hub/index.html", context)
+
+    def post(self, request):
+        form = signInForm(request.POST)
+        context = {
+            "coins": Coin.objects.all(),
+            "form": form
+        }
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                # Redirect to a success page or do whatever is needed
+                print("logged in")
+                return HttpResponseRedirect(reverse("starting-page"))
+            else:
+                # Handle invalid login
+                form.add_error(None, 'Invalid login credentials')
+                print("not logged, error")
 
         return render(request, "hub/index.html", context)
 

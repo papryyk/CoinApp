@@ -44,9 +44,14 @@
         <a onclick=expandLogIn() id="login">Log in</a>
         <a href="{% url 'register-page' %}" id="register">Register</a>
         <div id="expand-login">
-          <input id="user-input" class="user_pwd" placeholder="Username">
-          <input id="user-pwd" class="user_pwd" placeholder="Password">
-          <a id="login-button">Log in</a>
+          {% comment %} <input id="user-input" class="user_pwd" placeholder="Username"> {% endcomment %}
+          {% comment %} <input id="user-pwd" class="user_pwd" placeholder="Password"> {% endcomment %}
+          {% comment %} <a id="login-button">Log in</a> {% endcomment %}
+          <form method="POST" action="{% url 'starting-page' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="login-button">Log in</button>
+          </form>
         </div>
       </div>
       </div>
