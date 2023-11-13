@@ -10,11 +10,23 @@ Register
 {% endblock %}
 
 {% block content %}
-<div id="register-page">
+<div id="register-container">
+<div id="register-main">
     <form method="POST">
         {% csrf_token %}
-        <p>{{ form.as_p }}</p>
-        <input type="submit" value="Register">
+        <p>Nickname</p>
+        {{ form2.username }}
+        <p>E-mail</p>
+        {{ form2.email }}
+        <p>Password</p>
+        {{ form2.password1 }}
+        <p>Repeat password</p>
+        {{ form2.password2 }}
+        <br>
+        <div id="button-div">
+        <input id="register-button" type="submit" value="Register">
+        </div>
     </form>
+</div>
 </div>
 {% endblock %}

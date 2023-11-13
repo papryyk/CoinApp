@@ -117,11 +117,37 @@ class CoinPage(View):
         return render(request, "hub/coin_details.html", context)
 
 
-class SignUpView(FormView):
-    template_name = 'hub/register.html'
-    form_class = UserRegisterForm
-    success_url = reverse_lazy("starting-page")
+class SignUpView(View):
+    # template_name = 'hub/register.html'
+    # form_class = {'form2': UserRegisterForm, 'form': signInForm}
+    # success_url = reverse_lazy("starting-page")
 
-    def form_valid(self, form):
-        form.save()
-        return super(SignUpView, self).form_valid(form)
+    # def form_valid(self, form):
+    #     form.save()
+    #     for i in form:
+    #         print(i)
+    #     return super(SignUpView, self).form_valid(form)
+
+    def get(self, request):
+        form = signInForm()
+        form2 = UserRegisterForm()
+        context = {
+            "form": form,
+            "form2": form2
+        }
+
+        return render(request, "hub/register.html", context)
+
+    def post(self, request):
+        form2 = UserRegisterForm(request.POST)
+        if form2.is_valid():
+            form2.save()
+            return HttpResponseRedirect(reverse("starting-page"))
+        else:
+            form = signInForm()
+            form2 = UserRegisterForm()
+            context = {
+                "form": form,
+                "form2": form2
+            }
+            return render(request, "hub/register.html", context)

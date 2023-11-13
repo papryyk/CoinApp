@@ -5,10 +5,11 @@ Website which collects crypto coins data from most of the markets, with easy too
 Views:
 1. ~~Add Register view~~
 2. ~~Add Log in div~~
-3. Style Register view
+3. ~~Style Register view~~
 4. ~~Style Log in div~~
-5. Add My account view
-6. Update coin details page ("More" href)
+5. Display errors on Register/Login forms
+6. Add My account view
+7. Update coin details page ("More" href)
 
 Tools:
 1. Add chart tools, incl. ranges

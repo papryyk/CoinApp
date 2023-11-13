@@ -43,7 +43,11 @@
       <div id="main-logins">
         {% if user.username != "" %}
         <div id='user-info'>
-          <p> {{ user.username }} <p>
+          {% if user.first_name != ""%}
+          <a id="username_widget"> {{ user.first_name|title }} {{ user.last_name|title }} <a>
+          {% else %}
+          <a> {{ user.username }}
+          {% endif %}
           <a id="register" href="{% url 'logout-button' %}">Log out</a>
         </div>
         {% else %}

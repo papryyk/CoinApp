@@ -61,6 +61,11 @@ input:focus::placeholder {
   outline: none;
 }
 
+#main-search-input:hover {
+  cursor: pointer;
+  background-color: rgba(114, 206, 240, 0.907);
+}
+
  a {
   color:rgba(255, 255, 255, 0.519);
   text-decoration: none;
@@ -147,8 +152,7 @@ input:focus::placeholder {
 }
 
 #register:hover {
-  border: 5px solid black;
-  border-radius: 90px;
+  background-color: rgba(0, 0, 0, 0.739);
 }
 
 #main-register-button {
@@ -161,8 +165,7 @@ input:focus::placeholder {
 }
 
 #main-register-button:hover {
-  border: 5px solid black;
-  border-radius: 90px;
+  background-color: rgba(0, 0, 0, 0.739);
 }
 
 #email-register-button {
@@ -263,13 +266,27 @@ input:focus::placeholder {
   color: white;
   background-color: rgba(0, 0, 0, 0.81);
   text-align: center;
-  padding: 5px;
+  padding: 15px;
   border-radius: 30px;
   margin-top: 10px;
   width: 160px;
   border: 0;
+  font-size: 15px;
 }
 
 #login-button:hover {
-  background-color: rgba(64, 95, 235, 0.556)
+  background-color: rgba(0, 0, 0, 0.894);
+  cursor: pointer;
+}
+
+#username_widget {
+  background-color: rgba(255, 255, 255, 0.519);
+  color: rgba(0, 0, 0, 0.479);
+  border-radius: 15px;
+  padding: 7px;
+}
+
+#username_widget:hover {
+  background-color: rgba(255, 255, 255, 0.754);
+  cursor: pointer;
 }
