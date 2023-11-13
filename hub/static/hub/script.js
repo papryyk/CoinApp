@@ -217,6 +217,25 @@ function searchOutcome(clickedSymbol) {
     });
     }
 
+function expandLogIn() {
+  var mainLoginDiv = document.getElementById("main-logins")
+  var expandLoginDiv = document.getElementById("expand-login")
+  var loginButton = document.getElementById("login")
+  var bottomLoginButton = document.getElementById("login-button")
+  var loginInput = document.getElementById("user-input")
+  var pwdInput = document.getElementById("user-pwd")
+
+
+  expandLoginDiv.style.setProperty("display","flex")
+  document.addEventListener('click', function (event) {
+    // Hide the dropdown when clicking outside the input and dropdown
+    if (event.target !== mainLoginDiv && event.target !== expandLoginDiv && event.target !== loginButton
+      && event.target !== bottomLoginButton && event.target !== loginInput && event.target !== pwdInput) {
+        expandLoginDiv.style.setProperty("display","none");
+    }
+  })
+  } 
+
     
   
 
