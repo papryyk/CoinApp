@@ -56,12 +56,20 @@
         <div id="expand-login">
           <form id="sign-in-form" method="POST" action="{% url 'starting-page' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.username }}
+            <br>
+            {{ form.password }}
+            <br>
             <button type="submit" id="login-button">Log in</button>
           </form>
         </div>
         {% endif %}
       </div>
+      {% if form.errors %}
+      <div id="form-errors">
+      {{ form.non_field_errors }}
+      </div>
+      {% endif %}
       </div>
     {% endblock %} {% block content %} {% endblock %}
     <script src="{% static 'hub/script.js' %}"></script>

@@ -135,6 +135,7 @@ input:focus::placeholder {
 
 .scroll-link:hover,
 #login:hover {
+  cursor: pointer;
   border-bottom: 2px solid;
 }
 
@@ -289,4 +290,11 @@ input:focus::placeholder {
 #username_widget:hover {
   background-color: rgba(255, 255, 255, 0.754);
   cursor: pointer;
+}
+
+#form-errors {
+  text-align: right;
+  color: red;
+  margin-top: 50px;
+  margin-left: 2%;
 }

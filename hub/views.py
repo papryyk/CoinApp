@@ -53,7 +53,6 @@ class StartingPage(View):
                 return HttpResponseRedirect(reverse("starting-page"))
             else:
                 form.add_error(None, 'Invalid login credentials')
-                print("not logged, error")
 
         return render(request, "hub/index.html", context)
 
