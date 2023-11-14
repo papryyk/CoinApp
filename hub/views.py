@@ -138,15 +138,16 @@ class SignUpView(View):
         return render(request, "hub/register.html", context)
 
     def post(self, request):
+        form = signInForm()
         form2 = UserRegisterForm(request.POST)
+        context = {
+            "form": form,
+            "form2": form2
+        }
+
         if form2.is_valid():
             form2.save()
             return HttpResponseRedirect(reverse("starting-page"))
         else:
-            form = signInForm()
-            form2 = UserRegisterForm()
-            context = {
-                "form": form,
-                "form2": form2
-            }
+            print(form2.errors)
             return render(request, "hub/register.html", context)

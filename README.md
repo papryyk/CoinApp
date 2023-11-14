@@ -7,7 +7,7 @@ Views:
 2. ~~Add Log in div~~
 3. ~~Style Register view~~
 4. ~~Style Log in div~~
-5. Display errors on Register/~~Login~~ forms
+5. ~~Display errors on Register/Login forms~~
 6. Add My account view
 7. Update coin details page ("More" href)
 

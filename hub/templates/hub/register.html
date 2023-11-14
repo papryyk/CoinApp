@@ -16,12 +16,26 @@ Register
         {% csrf_token %}
         <p>Nickname</p>
         {{ form2.username }}
+        {% if form2.errors.username %}
+        {{ form2.errors.username }}
+        <br>
+        {% endif %}
         <p>E-mail</p>
         {{ form2.email }}
+        {% if form2.errors.email %}
+        {{ form2.errors.email }}
+        <br>
+        {% endif %}
         <p>Password</p>
         {{ form2.password1 }}
+        {% if form2.errors.password1 %}
+        {{ form2.errors.password1 }}
+        {% endif %}
         <p>Repeat password</p>
         {{ form2.password2 }}
+        {% if form2.errors.password2 %}
+        {{ form2.errors.password2 }}
+        {% endif %}
         <br>
         <div id="button-div">
         <input id="register-button" type="submit" value="Register">
