@@ -206,6 +206,7 @@ input:focus::placeholder {
 #main-logo-image {
   width: 550px;
   margin-top: -30px;
+  margin-left: 150px;
 }
 
 #main-register {

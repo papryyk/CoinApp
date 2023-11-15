@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My account
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'hub/account.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="container1">
+    <div id="col1">
+        <img id="profile-pic" src="{% static 'hub/images/profile-pic.png' %}">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p id="username-p"> {{ user.username }}</p>
+        <div id="user-actions">
+            <a class="user-buttons">Change password</a>
+            <a class="user-buttons">Change e-mail</a>
+            <a class="user-buttons">Delete account</a>
+            <div id="log-out-button">
+                <a id="log-out-button-a" class="user-buttons">Log out</a>
+            </div>
+        </div>
+    </div>
+    <div id="col2">
+        <div id="fav-coins">
+            <h4>Favourite coins</h4>
+            <table cellspacing="0">
+                <tr>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>Percentage</th>
+                    <th>Low 24h</th>
+                    <th>High 24</th>
+                    <th>Suggested min</th>
+                    <th>Suggested max</th>
+                    <th>Private min</th>
+                    <th>Private max</th>
+                </tr>
+                {% for coin in coins %}
+                <tr>
+                    <td>{{ coin.name }}</td>
+                    <td>{{ coin.current_price|floatformat:2 }}</td>
+                    <td>{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+                    <td>{{ coin.low_24h|floatformat:2 }}</td>
+                    <td>{{ coin.high_24h|floatformat:2 }}</td>
+                    <td>{{ coin.ranges.min_range|floatformat:2 }}</td>
+                    <td>{{ coin.ranges.max_range|floatformat:2 }}</td>
+                    <td>12344</td>
+                    <td>12346</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="account-ranges">
+            <div id="account-min-ranges">
+                <h4>Inside range</h4>
+                <table cellspacing="0">
+                    <tr>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>Percentage</th>
+                        <th>Low 24h</th>
+                        <th>High 24</th>
+                    </tr>
+                    {% for coin in coins|slice:":5" %}
+                    <tr>
+                        <td>{{ coin.name }}</td>
+                        <td>{{ coin.current_price|floatformat:2 }}</td>
+                        <td>{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+                        <td>{{ coin.low_24h|floatformat:2 }}</td>
+                        <td>{{ coin.high_24h|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="account-max-ranges">
+                <h4>Outside range</h4>
+                <table cellspacing="0">
+                    <tr>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>Percentage</th>
+                        <th>Low 24h</th>
+                        <th>High 24</th>
+                    </tr>
+                    {% for coin in coins|slice:":5" %}
+                    <tr>
+                        <td>{{ coin.name }}</td>
+                        <td>{{ coin.current_price|floatformat:2 }}</td>
+                        <td>{{ coin.price_change_percentage_24h|floatformat:2 }}%</td>
+                        <td>{{ coin.low_24h|floatformat:2 }}</td>
+                        <td>{{ coin.high_24h|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>  
+    </div>
+</div>
+{% endblock %}

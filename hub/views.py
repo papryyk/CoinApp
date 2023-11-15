@@ -117,16 +117,6 @@ class CoinPage(View):
 
 
 class SignUpView(View):
-    # template_name = 'hub/register.html'
-    # form_class = {'form2': UserRegisterForm, 'form': signInForm}
-    # success_url = reverse_lazy("starting-page")
-
-    # def form_valid(self, form):
-    #     form.save()
-    #     for i in form:
-    #         print(i)
-    #     return super(SignUpView, self).form_valid(form)
-
     def get(self, request):
         form = signInForm()
         form2 = UserRegisterForm()
@@ -151,3 +141,13 @@ class SignUpView(View):
         else:
             print(form2.errors)
             return render(request, "hub/register.html", context)
+
+
+class MyProfileView(View):
+    def get(self, request, user):
+        context = {
+            "current_user": request.user,
+            "coins": Coin.objects.all()[:10]
+        }
+
+        return render(request, "hub/account.html", context)

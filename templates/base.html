@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "hub/images/apple-touch-icon-precomposed.png" %}">
     {% block js %}{% endblock %} {% block css_files %}{% endblock %}
   </head>
-  <body>
+  <header>
     {% block header %}
       <div id="main-navigation">
         <div id="main-search">
@@ -44,9 +44,9 @@
         {% if user.username != "" %}
         <div id='user-info'>
           {% if user.first_name != ""%}
-          <a id="username_widget"> {{ user.first_name|title }} {{ user.last_name|title }} <a>
+          <a href="{% url 'my-account' user %}" id="username_widget"> {{ user.first_name|title }} {{ user.last_name|title }} <a>
           {% else %}
-          <a> {{ user.username }}
+          <a href="{% url 'my-account' user %}" id="username_widget"> {{ user.username }}
           {% endif %}
           <a id="register" href="{% url 'logout-button' %}">Log out</a>
         </div>
@@ -71,7 +71,12 @@
       </div>
       {% endif %}
       </div>
-    {% endblock %} {% block content %} {% endblock %}
+    </header>
+    {% endblock %}
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
     <script src="{% static 'hub/script.js' %}"></script>
-  </body>
+    
 </html>

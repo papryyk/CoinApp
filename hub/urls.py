@@ -7,5 +7,6 @@ urlpatterns = [
     path("coin/<symbol>", views.CoinPage.as_view(), name="coin-details"),
     path("delete_range/<symbol>", views.delete_range, name="delete-range"),
     path("register", views.SignUpView.as_view(), name="register-page"),
-    path("logout", views.logout_button, name="logout-button")
+    path("logout", views.logout_button, name="logout-button"),
+    path("account/<user>", views.MyProfileView.as_view(), name="my-account")
 ]
