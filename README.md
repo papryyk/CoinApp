@@ -4,22 +4,15 @@ Website which collects crypto coins data from most of the markets, with easy too
 # TODO
 Views:
 1. ~~Add Register view~~
-2. ~~Add Log in div~~
-3. ~~Style Register view~~
-4. ~~Style Log in div~~
-5. ~~Display errors on Register/Login forms~~
-6. ~~Add My account view~~
-7. Update coin details page ("More" href)
+2. ~~Add Login view~
+3. ~~Add My account view~~
+4. Update coin details page ("More" href)
 
 Tools:
-1. Add chart tools, incl. ranges
+1. Add candlestick
 2. Correct outside link connection (via API)
 3. Switch from coingecko API into markets directly
 4. Replace django-workers with Celery
-
-Overall:
-1. Adjust styling
-2. Prepare for deployment (AWS)
 
 
 # Landing page
