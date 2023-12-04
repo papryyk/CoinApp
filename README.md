@@ -4,7 +4,7 @@ Website which collects crypto coins data from most of the markets, with easy too
 # TODO
 Views:
 1. ~~Add Register view~~
-2. ~~Add Login view~
+2. ~~Add Login view~~
 3. ~~Add My account view~~
 4. Update coin details page ("More" href)
 
