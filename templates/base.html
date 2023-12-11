@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "hub/images/apple-touch-icon-precomposed.png" %}">
     {% block js %}{% endblock %} {% block css_files %}{% endblock %}
   </head>
-  <header>
+  <main>
     {% block header %}
       <div id="main-navigation">
         <div id="main-search">
@@ -71,9 +71,7 @@
       </div>
       {% endif %}
       </div>
-    </header>
     {% endblock %}
-    <main>
     {% block content %}
     {% endblock %}
     </main>
