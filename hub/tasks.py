@@ -46,8 +46,8 @@ def api_to_db():
                 db_coin.current_price = coin["current_price"]
                 # db_coin.private_history_price = ""
                 # db_coin.private_upload_time = ""
-                db_coin.private_history_price = f"{coin['current_price']},"
-                db_coin.private_upload_time = f"{dateformat.format(timezone.now(),'Y-m-d H:i:s')},"
+                db_coin.private_history_price += f"{coin['current_price']},"
+                db_coin.private_upload_time += f"{dateformat.format(timezone.now(),'Y-m-d H:i:s')},"
                 db_coin.market_cap = coin["market_cap"]
                 db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
                 db_coin.high_24h = coin["high_24h"]
