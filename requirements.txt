@@ -1,3 +1,4 @@
 Django==5.0
 django_workers==0.2.0
 Requests==2.31.0
+chartjs==1.2
