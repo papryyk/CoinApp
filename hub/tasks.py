@@ -25,6 +25,9 @@ def api_to_db():
             api_url = f"https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart?vs_currency=usd&days=365"
             response = requests.get(api_url)
             results = response.json()
+            print(results)
+            coin_chart.upload_time = f"{datetime.datetime.utcfromtimestamp(int(results['prices'][0][0])/1000).strftime('%Y-%m-%d %H:%M:%S')},"
+            coin_chart.history_price = f"{results['prices'][0][1]},"
             for result in results["prices"]:
 
                 coin_chart.upload_time += f"{datetime.datetime.utcfromtimestamp(int(result[0])/1000).strftime('%Y-%m-%d %H:%M:%S')},"
@@ -46,8 +49,8 @@ def api_to_db():
                 db_coin.current_price = coin["current_price"]
                 # db_coin.private_history_price = ""
                 # db_coin.private_upload_time = ""
-                db_coin.private_history_price += f"{coin['current_price']},"
-                db_coin.private_upload_time += f"{dateformat.format(timezone.now(),'Y-m-d H:i:s')},"
+                db_coin.private_history_price = f"{coin['current_price']},"
+                db_coin.private_upload_time = f"{dateformat.format(timezone.now(),'Y-m-d H:i:s')},"
                 db_coin.market_cap = coin["market_cap"]
                 db_coin.price_change_percentage_24h = coin["price_change_percentage_24h"]
                 db_coin.high_24h = coin["high_24h"]

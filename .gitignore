@@ -6,6 +6,8 @@ __pycache__
 db.sqlite3
 media
 CoinApp/settings.py
+staticfiles
+ver2.zip
 
 # Backup files # 
 *.bak 
@@ -136,3 +138,8 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
