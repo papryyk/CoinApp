@@ -151,12 +151,10 @@ function searchOutcome(clickedSymbol) {
         var currentCoinName = rows[i].getElementsByTagName('td')[11].textContent;
         var historyPrice = rows[i].getElementsByTagName('td')[12].textContent;
         historyPrice = historyPrice.split(",")
-        historyPrice.pop()
         console.log(historyPrice)
         var uploadTime = rows[i].getElementsByTagName('td')[13].textContent;
         uploadTime = uploadTime.split(",")
         uploadTime.pop()
-        console.log(uploadTime)
         
         document.getElementById("coin-name-p").textContent = ""
         document.getElementById("coin-name-p").append(img)
@@ -180,7 +178,7 @@ function searchOutcome(clickedSymbol) {
       data: {
         labels: uploadTime,
         datasets: [{
-          label: "test",
+          label: `${currentCoinName}/USD`,
           data: historyPrice,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)', 
