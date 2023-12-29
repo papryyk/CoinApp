@@ -1,4 +1,4 @@
-from workers.worker import task
+from workers import task
 
 from time import sleep
 import datetime
@@ -9,7 +9,7 @@ import requests
 from .models import Coin
 
 
-@task()
+@task(schedule=60*465)
 def api_to_db():
 
     # Get chart data
