@@ -1,6 +1,8 @@
 # CoinApp
 Website which collects crypto coins data from most of the markets, with easy tools to maintain the wallet & work with trading plan.
 
+[**Live DEMO**](http://coinapp-env.eba-x2mcn8na.eu-north-1.elasticbeanstalk.com/)
+
 # TODO
 Views:
 1. ~~Add Register view~~
