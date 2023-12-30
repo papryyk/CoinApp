@@ -109,3 +109,41 @@
 #coins {
   width: 1200px;
 }
+
+@media screen and (max-width: 550px) {
+  #coins {
+    width: 100%;
+  }
+
+  #coin-list {
+    margin-top: 0;
+    top: 0;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  #coin-list td,
+  #coin-list th {
+    position:relative;
+    background-color: rgb(239, 240, 242);
+  }
+
+  #coin-list td:nth-child(2),
+  #coin-list tr th:nth-child(2) {
+    position: sticky;
+    background-color: rgb(239, 240, 242);
+    left: 0;
+    z-index: 2;
+    max-width: 100px;
+    overflow: hidden;
+  }
+
+  #coin-list td:nth-child(1),
+  #coin-list tr th:nth-child(1) {
+    display: none;
+  }
+
+  .coin-icon {
+    padding-right: 0;
+  }
+}

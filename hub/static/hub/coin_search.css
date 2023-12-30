@@ -226,3 +226,108 @@
   background-color: #ccc;
 }
 
+@media screen and (max-width: 550px) {
+
+  * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #chart-description-container {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #description-line-one { 
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #more {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #coin-search {
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 70px;
+    margin-bottom: 0;
+  }
+
+  .chart {
+    width: auto;
+  }
+
+  #own-range {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;;
+  }
+
+  #more-href {
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #outsource-links a.button {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+  }
+
+  #news-href {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #coin-search p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #description {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  #description-own-min,
+  #description-own-max {
+    text-align: left;
+  }
+
+  #own-range,
+  #set-own-range {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .own-range-p {
+    text-align: center;
+  }
+
+  #value{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #percentage {
+    text-align: left;
+  }
+
+  #percentage-p {
+    text-align: left;
+  }
+}

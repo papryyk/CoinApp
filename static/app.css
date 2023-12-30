@@ -300,3 +300,85 @@ input:focus::placeholder {
   margin-top: 50px;
   margin-left: 2%;
 }
+
+@media screen and (max-width: 550px) {
+  #main-services {
+    display: none;
+  }
+
+  #register {
+    display: none;
+  }
+
+  #login {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.479);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    
+  #login-button:hover {
+      background-color: rgba(0, 0, 0, 0.739);
+    }
+
+  #image {
+      display: none;
+    }
+
+  #main-register {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    background-color: none;
+  }
+
+  #main-register-button {
+    margin-top: 5px;
+  }
+
+  #other-register,
+  #connection-register {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #title {
+    margin-left:auto;
+    margin-right: auto;
+  }
+
+  #title h1 {
+    font-size: 35px;
+  }
+
+  #main-logins {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+  }
+
+  #main-information {
+    position: static;
+  }
+  
+  #main-information.scrolled {
+    background: none;
+  }
+
+  #email-register-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #main-information h1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  }

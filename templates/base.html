@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
@@ -17,7 +17,7 @@
     {% block header %}
       <div id="main-navigation">
         <div id="main-search">
-          <input class="scroll-link" href="#coin-search" id="main-search-input" placeholder="Cut the crap & search...">
+          <input class="scroll-link" href="#coin-search" id="main-search-input" placeholder="Search...">
         </div>
         <div id="main-links">
         <a target="_blank" href="https://www.youtube.com/watch?v=b1k8RdF5u2g">About us</a>
