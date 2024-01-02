@@ -30,7 +30,7 @@ class StartingPage(View):
     def get(self, request):
         form = signInForm()
         context = {
-            "coins": Coin.objects.all(),
+            "coins": Coin.objects.all().order_by("market_cap_rank"),
             "form": form
         }
 
