@@ -155,6 +155,9 @@ function searchOutcome(clickedSymbol) {
         var uploadTime = rows[i].getElementsByTagName('td')[13].textContent;
         uploadTime = uploadTime.split(",")
         uploadTime.pop()
+        for (var ind = 0; ind < uploadTime.length ; ind++) {
+          uploadTime[ind] = uploadTime[ind].slice(0,10)
+        }
         
         document.getElementById("coin-name-p").textContent = ""
         document.getElementById("coin-name-p").append(img)
