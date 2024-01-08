@@ -13,7 +13,7 @@
 <div id="content-wrapper">
     <h1><img src="{{ image }}" alt="Image" class="coin-icon"> {{ name }} {{ symbol|upper }}</h1>
     <h2>{{ current_price|floatformat:2 }} $</h2>
-    {% if range_exists %}<h3><a href="{% url 'delete-range' symbol %}"><button>Usuń zakres</button></a></h3> {% endif %}
+    {% if min_range %}<h3><a href="{% url 'delete-range' symbol %}"><button>Usuń zakres</button></a></h3> {% endif %}
     <form action="{% url 'coin-details' symbol %}" method="POST">
         {% csrf_token %}
         <br>
@@ -25,7 +25,6 @@
         </p>
         {{ ranges_form.min_range }}
         {{ ranges_form.max_range }}
-        {{ ranges_form.coin }}
         <button>Save</button>
     </form>
 </div>

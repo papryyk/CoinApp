@@ -7,7 +7,7 @@ db.sqlite3
 media
 CoinApp/settings.py
 staticfiles
-ver2.zip
+coinapp.zip
 
 # Backup files # 
 *.bak 
@@ -143,3 +143,4 @@ GitHub.sublime-settings
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+

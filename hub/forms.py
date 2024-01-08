@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import Ranges
 
@@ -8,7 +8,7 @@ from .models import Ranges
 class RangesForm(forms.ModelForm):
     class Meta:
         model = Ranges
-        exclude = ["coin"]
+        exclude = ["coin", "user"]
 
 
 class UserRegisterForm(UserCreationForm):

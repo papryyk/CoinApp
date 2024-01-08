@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -24,22 +25,19 @@ class Coin(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+    
 
 
 class Ranges(models.Model):
-    coin = models.OneToOneField(
-        Coin, on_delete=models.CASCADE, related_name="ranges")
+    coin = models.ForeignKey(
+        Coin, on_delete=models.PROTECT, related_name="ranges", null=True)
     min_range = models.DecimalField(
         max_digits=20, decimal_places=10, null=True)
     max_range = models.DecimalField(
         max_digits=20, decimal_places=10, null=True)
+    user = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="ranges", null=True)
 
     def __str__(self):
         return f"{self.coin}"
-
-
-class User(models.Model):
-    username: models.CharField(max_length=20)
-    email: models.EmailField((""), max_length=254)
-    first_name: models.CharField(max_length=20, null=True)
-    last_name: models.CharField(max_length=20, null=True)
+    

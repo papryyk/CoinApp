@@ -14,7 +14,7 @@ from .forms import RangesForm, UserRegisterForm, signInForm
 
 def delete_range(request, symbol):
     coin = Coin.objects.get(symbol=symbol)
-    Ranges.objects.get(coin=coin).delete()
+    Ranges.objects.get(coin=coin, user=request.user).delete()
 
     return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
 
@@ -31,6 +31,7 @@ class StartingPage(View):
         form = signInForm()
         context = {
             "coins": Coin.objects.all().order_by("market_cap_rank"),
+            "user": request.user,
             "form": form
         }
 
@@ -67,38 +68,38 @@ class CoinPage(View):
             "image": coin.image,
             "ranges_form": RangesForm(instance=coin),
             "coin": coin,
-            "range_exists": Ranges.objects.filter(coin=coin)
         }
+
         try:
-            context["min_range"] = coin.ranges.min_range
-            context["max_range"] = coin.ranges.max_range
-        except Coin.ranges.RelatedObjectDoesNotExist:
-            # coin.ranges = Ranges()
-            # context["min_range"] = coin.ranges.min_range
-            # context["max_range"] = coin.ranges.max_range
+            range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
+            context["min_range"] = range.min_range
+            context["max_range"] = range.max_range
+        except Ranges.DoesNotExist:
+            # Range is not set
             pass
 
         return render(request, "hub/coin_details.html", context)
 
     def post(self, request, symbol):
         coin = Coin.objects.get(symbol=symbol)
-        try:
-            form = RangesForm(request.POST, instance=coin.ranges)
+        range = Ranges.objects.filter(coin__symbol=symbol, user=request.user)
+        if range:
+            range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
+            form = RangesForm(request.POST, instance=range)
+            print("if range")
             if form.is_valid():
+                print("if range, form.save()")
                 form.save()
-            else:
-                print("error")
-
-                return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
-
-        except Coin.ranges.RelatedObjectDoesNotExist:
-            form = RangesForm(request.POST)
+        else:
+            print("no range found")
+            form = RangesForm(request.POST, initial={'user': request.user})
             if form.is_valid():
                 coin_range = form.save(commit=False)
                 coin_range.coin = coin
+                coin_range.user = request.user
                 coin_range.save()
 
-                return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
+            return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
 
         context = {
             "name": coin.name,
@@ -108,9 +109,10 @@ class CoinPage(View):
             "ranges_form": form
         }
         try:
-            context["min_range"] = coin.ranges.min_range
-            context["max_range"] = coin.ranges.max_range
-        except Coin.ranges.RelatedObjectDoesNotExist:
+            context["min_range"] = range.min_range
+            context["max_range"] = range.max_range
+        except Ranges.DoesNotExist:
+            # Range not set
             pass
 
         return render(request, "hub/coin_details.html", context)

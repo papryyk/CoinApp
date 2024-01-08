@@ -73,12 +73,24 @@
       <td><b>{{ coin.low_24h | floatformat:2 }}</b></td>
       <td><b>{{ coin.high_24h | floatformat:2 }}</b></td>
       <td><b>{{ coin.market_cap | floatformat:2 }}</b></td>
-      {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
-      <td><b>{{ coin.ranges.min_range | floatformat:2 }}</b></td>
-      <td><b>{{ coin.ranges.max_range | floatformat:2 }}</b></td>
+      {% if coin.ranges.get.min_range == ""%}
+      <td><b></b></td>
+      <td><b></b></td>
       {% else %}
-      <td><b>{{ coin.ranges.min_range | floatformat:6 }}</b></td>
-      <td><b>{{ coin.ranges.max_range | floatformat:6 }}</b></td>
+      {% for range in coin.ranges.all %}
+      {% if coin.ranges.get.user == user and coin.ranges.get.coin == coin %}
+      {% if coin.current_price|divisibleby:1 and coin.current_price > 100 %}
+      <td><b>{{ coin.ranges.get.min_range | floatformat:2 }}</b></td>
+      <td><b>{{ coin.ranges.get.max_range | floatformat:2 }}</b></td>
+      {% else %}
+      <td><b>{{ coin.ranges.get.min_range| floatformat:6 }}</b></td>
+      <td><b>{{ coin.ranges.get.max_range | floatformat:6 }}</b></td>
+      {% endif %}
+      {% else %}
+      <td><b></b></td>
+      <td><b></b></td>
+      {% endif %}
+      {% endfor %}
       {% endif %}
       <td style="display:none">{{ coin.symbol }}</td>
       <td style="display:none">{{ coin.image }}</td>
