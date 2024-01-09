@@ -57,7 +57,7 @@ class StartingPage(View):
 
         return render(request, "hub/index.html", context)
 
-
+# TODO Setting ranges can be allowed only for logged in users
 class CoinPage(View):
     def get(self, request, symbol):
         coin = get_object_or_404(Coin, symbol=symbol)
@@ -69,53 +69,65 @@ class CoinPage(View):
             "ranges_form": RangesForm(instance=coin),
             "coin": coin,
         }
-
-        try:
-            range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
-            context["min_range"] = range.min_range
-            context["max_range"] = range.max_range
-        except Ranges.DoesNotExist:
-            # Range is not set
-            pass
+        if request.user.is_authenticated:
+            try:
+                range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
+                context["min_range"] = range.min_range
+                context["max_range"] = range.max_range
+            except Ranges.DoesNotExist:
+                # Range is not set
+                pass
 
         return render(request, "hub/coin_details.html", context)
 
     def post(self, request, symbol):
         coin = Coin.objects.get(symbol=symbol)
-        range = Ranges.objects.filter(coin__symbol=symbol, user=request.user)
-        if range:
-            range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
-            form = RangesForm(request.POST, instance=range)
-            print("if range")
-            if form.is_valid():
-                print("if range, form.save()")
-                form.save()
+        if request.user.is_authenticated:
+            range = Ranges.objects.filter(coin__symbol=symbol, user=request.user)
+            if range:
+                range = Ranges.objects.get(coin__symbol=symbol, user=request.user)
+                form = RangesForm(request.POST, instance=range)
+                print("if range")
+                if form.is_valid():
+                    print("if range, form.save()")
+                    form.save()
+            else:
+                print("no range found")
+                form = RangesForm(request.POST, initial={'user': request.user})
+                if form.is_valid():
+                    coin_range = form.save(commit=False)
+                    coin_range.coin = coin
+                    coin_range.user = request.user
+                    coin_range.save()
+
+                return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
+
+            context = {
+                "name": coin.name,
+                "symbol": coin.symbol,
+                "current_price": coin.current_price,
+                "image": coin.image,
+                "ranges_form": form
+            }
+            try:
+                context["min_range"] = range.min_range
+                context["max_range"] = range.max_range
+            except Ranges.DoesNotExist:
+                # Range not set
+                pass
+
+            return render(request, "hub/coin_details.html", context)
         else:
-            print("no range found")
-            form = RangesForm(request.POST, initial={'user': request.user})
-            if form.is_valid():
-                coin_range = form.save(commit=False)
-                coin_range.coin = coin
-                coin_range.user = request.user
-                coin_range.save()
-
-            return HttpResponseRedirect(reverse("coin-details", args=[symbol]))
-
-        context = {
-            "name": coin.name,
-            "symbol": coin.symbol,
-            "current_price": coin.current_price,
-            "image": coin.image,
-            "ranges_form": form
-        }
-        try:
-            context["min_range"] = range.min_range
-            context["max_range"] = range.max_range
-        except Ranges.DoesNotExist:
-            # Range not set
-            pass
-
-        return render(request, "hub/coin_details.html", context)
+            context = {
+                "name": coin.name,
+                "symbol": coin.symbol,
+                "current_price": coin.current_price,
+                "image": coin.image,
+                "ranges_form": RangesForm(request.POST),
+                "min_range": "You have to be logged in to do that",
+                "max_range": "You have to be logged in to do that"
+                }
+            return render(request, "hub/coin_details.html", context)
 
 
 class SignUpView(View):
